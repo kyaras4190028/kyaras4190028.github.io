@@ -7,17 +7,56 @@
         <link rel="icon" type="image/x-icon" href="favicon.ico">
         <title>Assessment 1</title>
     </head>
-<body>
-    {
-    margin: 0;
-    min-height: 100vh;
 
-    background-image: url("images/cork.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-</body> 
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corkboard Background</title>
+    <style>
+        /* Reset margins and ensure full height */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        /* Apply the corkboard background */
+        body {
+            /* Fallback warm brown color while image loads */
+            background-color: #8B5A2B; 
+            
+            /* Path to your seamless cork image */
+            background-image: url('cork-texture.jpg'); 
+            
+            /* Repeat the pattern endlessly across the screen */
+            background-repeat: repeat; 
+            
+            /* Keeps the background locked in place while content scrolls */
+            background-attachment: fixed; 
+            
+            /* Optional: Keeps the pattern sharp and clean */
+            background-size: auto; 
+        }
+
+        /* Container for content (acting as the board's interior) */
+        .board-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="board-container">
+        <!-- Your sticky notes, text, or photos go here -->
+    </div>
+
+</body>
+</html>
+
     
   <html>
     <head>
