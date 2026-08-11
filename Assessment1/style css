@@ -1,41 +1,64 @@
 body {
     margin: 0;
-    background-color: #8b5a2b;
     font-family: Arial, sans-serif;
 }
 
+/* CORKBOARD */
 .corkboard {
     min-height: 100vh;
+    position: relative;
     padding: 40px;
-    
-    /* Cork colour */
+
     background-color: #b97845;
 
-    /* Cork texture */
     background-image:
         radial-gradient(#8f5b35 1px, transparent 1px),
         radial-gradient(#d49a62 1px, transparent 1px);
 
     background-size: 12px 12px, 18px 18px;
-    background-position: 0 0, 6px 6px;
 
-    box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.35);
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.4);
 }
 
+/* TITLE */
 h1 {
     text-align: center;
     color: white;
+    font-size: 40px;
     text-shadow: 2px 2px 4px #5c351c;
 }
 
+/* STICKY NOTES */
 .sticky-note {
-    width: 200px;
+    position: absolute;
+
+    width: 180px;
     min-height: 150px;
+
     padding: 20px;
-    
+
     background: #fff3a6;
-    
-    box-shadow: 4px 6px 10px rgba(0, 0, 0, 0.3);
-    
-    transform: rotate(-3deg);
+
+    box-shadow: 5px 8px 12px rgba(0, 0, 0, 0.3);
+
+    font-family: "Comic Sans MS", cursive;
+}
+
+/* NOTE POSITIONS */
+.note1 {
+    top: 180px;
+    left: 100px;
+    transform: rotate(-5deg);
+}
+
+.note2 {
+    top: 300px;
+    left: 400px;
+    transform: rotate(3deg);
+}
+
+.note3 {
+    top: 170px;
+    right: 150px;
+    transform: rotate(-2deg);
 }
