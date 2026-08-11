@@ -73,3 +73,21 @@ h2 {
     right: 150px;
     transform: rotate(-2deg);
 }
+
+.note4 {
+    top: 420px;
+    left: 100px;
+    transform: rotate(2deg);
+}
+
+.note5 {
+    top: 540px;
+    left: 400px;
+    transform: rotate(-3deg);
+}
+
+.note6 {
+    top: 410px;
+    right: 150px;
+    transform: rotate(1deg);
+}
