@@ -25,7 +25,18 @@ h1 {
     text-align: center;
     color: white;
     font-size: 40px;
+    font-family: Georgia, serif;
     text-shadow: 2px 2px 4px #5c351c;
+    margin-bottom: 5px;
+}
+h2 {
+    text-align: center;
+    color: white;
+    font-size: 22px;
+    font-weight: normal;
+    font-family: Georgia, serif;
+    text-shadow: 2px 2px 4px #5c351c;
+    margin-top: 0;
 }
 
 /* STICKY NOTES */
@@ -41,7 +52,7 @@ h1 {
 
     box-shadow: 5px 8px 12px rgba(0, 0, 0, 0.3);
 
-    font-family: "Comic Sans MS", cursive;
+    font-family: "Verdana", sans-serif;
 }
 
 /* NOTE POSITIONS */
