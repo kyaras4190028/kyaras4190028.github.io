@@ -216,3 +216,95 @@ h2 {
 .note-row:nth-child(4) .sticky-note:nth-child(2) {
     transform: rotate(-3deg);
 }
+
+/* HIDE CHECKBOX */
+.interactive-note input {
+    display: none;
+}
+
+
+/* POPUP */
+.popup {
+    display: none;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999;
+}
+
+
+/* SHOW POPUP WHEN CHECKBOX IS CLICKED */
+.interactive-note input:checked ~ .popup {
+    display: flex;
+}
+
+
+/* DARK BACKGROUND */
+.popup-close {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.5);
+
+    cursor: pointer;
+}
+
+
+/* BIG STICKY NOTE */
+.big-note {
+    position: relative;
+
+    z-index: 10000;
+
+    width: 550px;
+    min-height: 400px;
+
+    padding: 50px;
+
+    box-sizing: border-box;
+
+    background: #fff3a6;
+
+    box-shadow: 10px 15px 30px rgba(0, 0, 0, 0.4);
+
+    transform: rotate(-2deg);
+
+    text-align: center;
+}
+
+
+/* BIG NOTE HEADING */
+.big-note h2 {
+    font-family: "Caveat", cursive;
+
+    font-size: 40px;
+
+    color: #333;
+
+    text-shadow: none;
+}
+
+
+/* BIG NOTE TEXT */
+.big-note p {
+    font-family: "Caveat", cursive;
+
+    font-size: 25px;
+
+    line-height: 1.5;
+
+    color: #333;
+}
