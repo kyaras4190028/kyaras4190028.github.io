@@ -43,29 +43,29 @@ h2 {
 .notes {
     display: flex;
     flex-direction: column;
-    gap: 35px;
-    margin: 60px auto;
-    width: 1100px;
+    gap: 70px;
+    margin: 80px auto;
+    width: 1300px;
 }
 
 /* EACH ROW */
 .note-row {
     display: flex;
     justify-content: center;
-    gap: 35px;
+    gap: 70px;
 }
 
 /* STICKY NOTE */
 .sticky-note {
     position: relative;
 
-    width: 210px;
-    height: 210px;
+    width: 260px;
+    height: 260px;
 
-    padding: 25px;
+    padding: 30px;
     box-sizing: border-box;
 
-    box-shadow: 5px 8px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 7px 10px 18px rgba(0, 0, 0, 0.3);
 
     font-family: "Comic Sans MS", cursive;
 }
@@ -186,13 +186,13 @@ h2 {
 /* HEADINGS ON NOTES */
 .sticky-note h2 {
     color: #333;
-    font-size: 24px;
-    margin-top: 10px;
+    font-size: 28px;
+    margin-top: 15px;
 }
 
 /* TEXT ON NOTES */
 .sticky-note p {
     color: #333;
-    font-size: 17px;
-    line-height: 1.4;
+    font-size: 19px;
+    line-height: 1.5;
 }
