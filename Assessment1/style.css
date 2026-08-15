@@ -39,160 +39,168 @@ h2 {
     margin-top: 0;
 }
 
-/* ALL THE NOTES */
+/* NOTES CONTAINER */
 .notes {
     display: flex;
     flex-direction: column;
-    gap: 70px;
+    gap: 80px;
     margin: 80px auto;
-    width: 1300px;
+    width: 1400px;
 }
 
 /* EACH ROW */
 .note-row {
     display: flex;
     justify-content: center;
-    gap: 70px;
+    gap: 80px;
 }
 
-/* STICKY NOTE */
+/* STICKY NOTES */
 .sticky-note {
     position: relative;
-
-    width: 260px;
-    height: 260px;
+    width: 280px;
+    height: 280px;
 
     padding: 30px;
     box-sizing: border-box;
 
-    box-shadow: 7px 10px 18px rgba(0, 0, 0, 0.3);
+    box-shadow: 8px 10px 18px rgba(0, 0, 0, 0.3);
 
     font-family: "Comic Sans MS", cursive;
 }
 
-/* DIFFERENT COLOURS */
-.note-row:nth-child(1) .sticky-note:nth-child(1) {
-    background: #fff3a6;
-}
-
-.note-row:nth-child(1) .sticky-note:nth-child(2) {
-    background: #ffb6c1;
-}
-
-.note-row:nth-child(1) .sticky-note:nth-child(3) {
-    background: #aee8ff;
-}
-
-.note-row:nth-child(1) .sticky-note:nth-child(4) {
-    background: #c9f7b5;
-}
-
-.note-row:nth-child(2) .sticky-note:nth-child(1) {
-    background: #ffd6a5;
-}
-
-.note-row:nth-child(2) .sticky-note:nth-child(2) {
-    background: #d8b4fe;
-}
-
-.note-row:nth-child(2) .sticky-note:nth-child(3) {
-    background: #fff3a6;
-}
-
-.note-row:nth-child(2) .sticky-note:nth-child(4) {
-    background: #aee8ff;
-}
-
-.note-row:nth-child(3) .sticky-note:nth-child(1) {
-    background: #ffb6c1;
-}
-
-.note-row:nth-child(3) .sticky-note:nth-child(2) {
-    background: #c9f7b5;
-}
-
-.note-row:nth-child(3) .sticky-note:nth-child(3) {
-    background: #ffd6a5;
-}
-
-.note-row:nth-child(4) .sticky-note:nth-child(1) {
-    background: #d8b4fe;
-}
-
-.note-row:nth-child(4) .sticky-note:nth-child(2) {
-    background: #fff3a6;
-}
-
-
-/* SLIGHT ROTATIONS */
-
-/* Row 1 */
-.note-row:nth-child(1) .sticky-note:nth-child(1) {
-    transform: rotate(-3deg);
-}
-
-.note-row:nth-child(1) .sticky-note:nth-child(2) {
-    transform: rotate(2deg);
-}
-
-.note-row:nth-child(1) .sticky-note:nth-child(3) {
-    transform: rotate(-2deg);
-}
-
-.note-row:nth-child(1) .sticky-note:nth-child(4) {
-    transform: rotate(4deg);
-}
-
-/* Row 2 */
-.note-row:nth-child(2) .sticky-note:nth-child(1) {
-    transform: rotate(3deg);
-}
-
-.note-row:nth-child(2) .sticky-note:nth-child(2) {
-    transform: rotate(-4deg);
-}
-
-.note-row:nth-child(2) .sticky-note:nth-child(3) {
-    transform: rotate(2deg);
-}
-
-.note-row:nth-child(2) .sticky-note:nth-child(4) {
-    transform: rotate(-3deg);
-}
-
-/* Row 3 */
-.note-row:nth-child(3) .sticky-note:nth-child(1) {
-    transform: rotate(-4deg);
-}
-
-.note-row:nth-child(3) .sticky-note:nth-child(2) {
-    transform: rotate(2deg);
-}
-
-.note-row:nth-child(3) .sticky-note:nth-child(3) {
-    transform: rotate(-2deg);
-}
-
-/* Row 4 */
-.note-row:nth-child(4) .sticky-note:nth-child(1) {
-    transform: rotate(3deg);
-}
-
-.note-row:nth-child(4) .sticky-note:nth-child(2) {
-    transform: rotate(-3deg);
-}
-
-
-/* HEADINGS ON NOTES */
+/* NOTE TEXT */
 .sticky-note h2 {
-    color: #333;
     font-size: 28px;
+    color: #333;
     margin-top: 15px;
 }
 
-/* TEXT ON NOTES */
 .sticky-note p {
-    color: #333;
     font-size: 19px;
     line-height: 1.5;
+    color: #333;
+}
+
+
+/* =========================
+   NOTE COLOURS
+   ========================= */
+
+.note-row:nth-child(1) .sticky-note:nth-child(1) {
+    background: #fff3a6;
+}
+
+.note-row:nth-child(1) .sticky-note:nth-child(2) {
+    background: #ffb6c1;
+}
+
+.note-row:nth-child(1) .sticky-note:nth-child(3) {
+    background: #aee8ff;
+}
+
+.note-row:nth-child(1) .sticky-note:nth-child(4) {
+    background: #c9f7b5;
+}
+
+
+/* ROW 2 */
+
+.note-row:nth-child(2) .sticky-note:nth-child(1) {
+    background: #ffd6a5;
+}
+
+.note-row:nth-child(2) .sticky-note:nth-child(2) {
+    background: #d8b4fe;
+}
+
+.note-row:nth-child(2) .sticky-note:nth-child(3) {
+    background: #fff3a6;
+}
+
+.note-row:nth-child(2) .sticky-note:nth-child(4) {
+    background: #aee8ff;
+}
+
+
+/* ROW 3 */
+
+.note-row:nth-child(3) .sticky-note:nth-child(1) {
+    background: #ffb6c1;
+}
+
+.note-row:nth-child(3) .sticky-note:nth-child(2) {
+    background: #c9f7b5;
+}
+
+.note-row:nth-child(3) .sticky-note:nth-child(3) {
+    background: #ffd6a5;
+}
+
+
+/* ROW 4 */
+
+.note-row:nth-child(4) .sticky-note:nth-child(1) {
+    background: #d8b4fe;
+}
+
+.note-row:nth-child(4) .sticky-note:nth-child(2) {
+    background: #fff3a6;
+}
+
+
+/* =========================
+   ROTATION
+   ========================= */
+
+.note-row:nth-child(1) .sticky-note:nth-child(1) {
+    transform: rotate(-3deg);
+}
+
+.note-row:nth-child(1) .sticky-note:nth-child(2) {
+    transform: rotate(2deg);
+}
+
+.note-row:nth-child(1) .sticky-note:nth-child(3) {
+    transform: rotate(-2deg);
+}
+
+.note-row:nth-child(1) .sticky-note:nth-child(4) {
+    transform: rotate(3deg);
+}
+
+.note-row:nth-child(2) .sticky-note:nth-child(1) {
+    transform: rotate(3deg);
+}
+
+.note-row:nth-child(2) .sticky-note:nth-child(2) {
+    transform: rotate(-3deg);
+}
+
+.note-row:nth-child(2) .sticky-note:nth-child(3) {
+    transform: rotate(2deg);
+}
+
+.note-row:nth-child(2) .sticky-note:nth-child(4) {
+    transform: rotate(-3deg);
+}
+
+.note-row:nth-child(3) .sticky-note:nth-child(1) {
+    transform: rotate(-3deg);
+}
+
+.note-row:nth-child(3) .sticky-note:nth-child(2) {
+    transform: rotate(2deg);
+}
+
+.note-row:nth-child(3) .sticky-note:nth-child(3) {
+    transform: rotate(-2deg);
+}
+
+.note-row:nth-child(4) .sticky-note:nth-child(1) {
+    transform: rotate(3deg);
+}
+
+.note-row:nth-child(4) .sticky-note:nth-child(2) {
+    transform: rotate(-3deg);
 }
