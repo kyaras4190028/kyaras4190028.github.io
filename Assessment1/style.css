@@ -308,3 +308,7 @@ h2 {
 
     color: #333;
 }
+
+.interactive-note {
+    position: relative;
+}
