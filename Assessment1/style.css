@@ -359,19 +359,13 @@ h1 {
 
 .pushpin::after {
     content: "";
-
     position: absolute;
-
     width: 3px;
     height: 10px;
-
     background: #555;
-
     left: 7px;
     top: 15px;
-
     transform: rotate(180deg);
-
     z-index: -1;
 }
 .big-note img {
