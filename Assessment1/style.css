@@ -96,71 +96,45 @@ h1 {
     overflow-wrap: break-word;
 }
 
-
 /* =========================
    NOTE COLOURS
    ========================= */
-
-
-/* ROW 1 */
-
 .note-row:nth-child(1) .interactive-note:nth-child(1) .sticky-note {
     background: #fff3a6;
 }
-
 .note-row:nth-child(1) .interactive-note:nth-child(2) .sticky-note {
     background: #ffb6c1;
 }
-
 .note-row:nth-child(1) .interactive-note:nth-child(3) .sticky-note {
     background: #aee8ff;
 }
-
 .note-row:nth-child(1) .interactive-note:nth-child(4) .sticky-note {
     background: #c9f7b5;
 }
-
-
-/* ROW 2 */
-
 .note-row:nth-child(2) .interactive-note:nth-child(1) .sticky-note {
     background: #ffd6a5;
 }
-
 .note-row:nth-child(2) .interactive-note:nth-child(2) .sticky-note {
     background: #d8b4fe;
 }
-
 .note-row:nth-child(2) .interactive-note:nth-child(3) .sticky-note {
     background: #fff3a6;
 }
-
 .note-row:nth-child(2) .interactive-note:nth-child(4) .sticky-note {
     background: #aee8ff;
 }
-
-
-/* ROW 3 */
-
 .note-row:nth-child(3) .interactive-note:nth-child(1) .sticky-note {
     background: #ffb6c1;
 }
-
 .note-row:nth-child(3) .interactive-note:nth-child(2) .sticky-note {
     background: #c9f7b5;
 }
-
 .note-row:nth-child(3) .interactive-note:nth-child(3) .sticky-note {
     background: #ffd6a5;
 }
-
-
-/* ROW 4 */
-
 .note-row:nth-child(4) .interactive-note:nth-child(1) .sticky-note {
     background: #d8b4fe;
 }
-
 .note-row:nth-child(4) .interactive-note:nth-child(2) .sticky-note {
     background: #fff3a6;
 }
@@ -170,66 +144,42 @@ h1 {
    NOTE ROTATIONS
    ========================= */
 
-
-/* ROW 1 */
-
 .note-row:nth-child(1) .interactive-note:nth-child(1) .sticky-note {
     transform: rotate(-3deg);
 }
-
 .note-row:nth-child(1) .interactive-note:nth-child(2) .sticky-note {
     transform: rotate(2deg);
 }
-
 .note-row:nth-child(1) .interactive-note:nth-child(3) .sticky-note {
     transform: rotate(-2deg);
 }
-
 .note-row:nth-child(1) .interactive-note:nth-child(4) .sticky-note {
     transform: rotate(3deg);
 }
-
-
-/* ROW 2 */
-
 .note-row:nth-child(2) .interactive-note:nth-child(1) .sticky-note {
     transform: rotate(3deg);
 }
-
 .note-row:nth-child(2) .interactive-note:nth-child(2) .sticky-note {
     transform: rotate(-3deg);
 }
-
 .note-row:nth-child(2) .interactive-note:nth-child(3) .sticky-note {
     transform: rotate(2deg);
 }
-
 .note-row:nth-child(2) .interactive-note:nth-child(4) .sticky-note {
     transform: rotate(-3deg);
 }
-
-
-/* ROW 3 */
-
 .note-row:nth-child(3) .interactive-note:nth-child(1) .sticky-note {
     transform: rotate(-3deg);
 }
-
 .note-row:nth-child(3) .interactive-note:nth-child(2) .sticky-note {
     transform: rotate(2deg);
 }
-
 .note-row:nth-child(3) .interactive-note:nth-child(3) .sticky-note {
     transform: rotate(-2deg);
 }
-
-
-/* ROW 4 */
-
 .note-row:nth-child(4) .interactive-note:nth-child(1) .sticky-note {
     transform: rotate(3deg);
 }
-
 .note-row:nth-child(4) .interactive-note:nth-child(2) .sticky-note {
     transform: rotate(-3deg);
 }
@@ -265,15 +215,11 @@ h1 {
 
 .popup-background {
     position: absolute;
-
     top: 0;
     left: 0;
-
     width: 100%;
     height: 100%;
-
     background: rgba(0, 0, 0, 0.5);
-
     cursor: pointer;
 }
 
@@ -284,20 +230,13 @@ h1 {
 
 .big-note {
     position: relative;
-
     z-index: 10000;
-
     width: 600px;
     min-height: 450px;
-
     padding: 60px;
-
     box-sizing: border-box;
-
     box-shadow:
         10px 15px 30px rgba(0, 0, 0, 0.4);
-
-
     text-align: center;
 }
 
@@ -308,13 +247,9 @@ h1 {
 
 .big-note h2 {
     font-family: Georgia, serif;
-
     font-size: 42px;
-
     color: #333;
-
     text-shadow: none;
-
     margin-bottom: 30px;
 }
 
@@ -325,11 +260,8 @@ h1 {
 
 .big-note p {
     font-family: Georgia, serif;
-
     font-size: 23px;
-
     line-height: 1.6;
-
     color: #333;
 }
 
@@ -338,76 +270,107 @@ h1 {
    BIG NOTE COLOURS
    ========================= */
 
-/* Q1 */
 .note-row:nth-child(1) .interactive-note:nth-child(1) .big-note {
     background: #fff3a6;
 }
-
-/* Q2 */
 .note-row:nth-child(1) .interactive-note:nth-child(2) .big-note {
     background: #ffb6c1;
 }
-
-/* Q3 */
 .note-row:nth-child(1) .interactive-note:nth-child(3) .big-note {
     background: #aee8ff;
 }
-
-/* Q4 */
 .note-row:nth-child(1) .interactive-note:nth-child(4) .big-note {
     background: #c9f7b5;
 }
-
-
-/* ROW 2 */
-
-/* Q5 */
 .note-row:nth-child(2) .interactive-note:nth-child(1) .big-note {
     background: #ffd6a5;
 }
-
-/* Q6 */
 .note-row:nth-child(2) .interactive-note:nth-child(2) .big-note {
     background: #d8b4fe;
 }
-
-/* Q7 */
 .note-row:nth-child(2) .interactive-note:nth-child(3) .big-note {
     background: #fff3a6;
 }
-
-/* Q8 */
 .note-row:nth-child(2) .interactive-note:nth-child(4) .big-note {
     background: #aee8ff;
 }
-
-
-/* ROW 3 */
-
-/* Q9 */
 .note-row:nth-child(3) .interactive-note:nth-child(1) .big-note {
     background: #ffb6c1;
 }
-
-/* Q10 */
 .note-row:nth-child(3) .interactive-note:nth-child(2) .big-note {
     background: #c9f7b5;
 }
-
-/* Q11 */
 .note-row:nth-child(3) .interactive-note:nth-child(3) .big-note {
     background: #ffd6a5;
 }
-
-
-/* ROW 4 */
-
-/* Q12 */
 .note-row:nth-child(4) .interactive-note:nth-child(1) .big-note {
     background: #d8b4fe;
 }
-
-/* Q13 */
 .note-row:nth-child(4) .interactive-note:nth-child(2) .big-note {
     background: #fff3a6;
+}
+
+/* =========================
+   PUSH PINS
+   ========================= */
+
+.pushpin {
+    position: absolute;
+
+    width: 18px;
+    height: 18px;
+
+    background: #b52b2b;
+
+    border-radius: 50%;
+
+    top: 1%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    box-shadow:
+        2px 3px 4px rgba(0, 0, 0, 0.4);
+
+    z-index: 5;
+}
+
+
+/* SHINY PART OF PUSH PIN */
+
+.pushpin::before {
+    content: "";
+
+    position: absolute;
+
+    width: 6px;
+    height: 6px;
+
+    background: rgba(255, 255, 255, 0.6);
+
+    border-radius: 50%;
+
+    top: 3px;
+    left: 4px;
+}
+
+
+/* LITTLE PIN POINT */
+
+.pushpin::after {
+    content: "";
+
+    position: absolute;
+
+    width: 3px;
+    height: 10px;
+
+    background: #555;
+
+    left: 7px;
+    top: 15px;
+
+    transform: rotate(180deg);
+
+    z-index: -1;
 }
