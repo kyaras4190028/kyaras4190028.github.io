@@ -14,6 +14,7 @@ body {
     background-size: 12px 12px, 18px 18px;
     box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.4);
 }
+/* I asked ChatGPT to help me get the corkboard background since I couldn't figure out the correct code for it. Google and other tutorials suggested me to use an image from online but the image couldn't align well or would end up blurry, hence why I ended up asking ChatGPT for help. */
 
 h1 {
     text-align: center;
@@ -23,6 +24,7 @@ h1 {
     text-shadow: 2px 2px 4px #5c351c;
     margin-bottom: 5px;
 }
+/* I chose to use Georgia as the font for the headings because it is a serif font that has a classic and elegant look, which complements the corkboard theme. I also made it white to make it stand out against the background and easy for viewers to read. The text-shadow adds depth and makes the text stand out against the background.  */
 
 .corkboard > h2 {
     text-align: center;
@@ -33,6 +35,7 @@ h1 {
     text-shadow: 2px 2px 4px #5c351c;
     margin-top: 0;
 }
+/*I chose to keep the fonts and colors all the same for the subheading to keep the design consistent and cohesive. The notes itself would be colorful so I didn't want to make the headings too colorful or distracting. I kept everything the same except for the sizing to clearly differentiate the heading and subheading.*/
 
 .notes {
     display: flex;
@@ -68,7 +71,7 @@ h1 {
     font-family: Georgia, serif;
     cursor: pointer;
 }
-
+/* I asked ChatGPT and Google on tutorials and examples on how to create and design the sticky notes, and ended up figuring it out myself.*/
 .sticky-note:hover {
     box-shadow:
         10px 14px 22px rgba(0, 0, 0, 0.4);
@@ -96,9 +99,7 @@ h1 {
     overflow-wrap: break-word;
 }
 
-/* =========================
-   NOTE COLOURS
-   ========================= */
+/* NOTE COLORS */
 .note-row:nth-child(1) .interactive-note:nth-child(1) .sticky-note {
     background: #fff3a6;
 }
@@ -138,12 +139,10 @@ h1 {
 .note-row:nth-child(4) .interactive-note:nth-child(2) .sticky-note {
     background: #fff3a6;
 }
+/* I made the sticky notes colorful to make them visually appealing and to create a playful and engaging atmosphere. The colors are also used to differentiate between the different questions, making it easier for users to navigate through the assessment. I chose soft pastel colors to create a friendly and inviting feel, while still maintaining readability and contrast with the text. */
 
 
-/* =========================
-   NOTE ROTATIONS
-   ========================= */
-
+/* NOTE ROTATIONS*/
 .note-row:nth-child(1) .interactive-note:nth-child(1) .sticky-note {
     transform: rotate(-3deg);
 }
@@ -183,12 +182,10 @@ h1 {
 .note-row:nth-child(4) .interactive-note:nth-child(2) .sticky-note {
     transform: rotate(-3deg);
 }
+/* I made the sticky notes rotate to create a more dynamic and visually interesting layout. The rotation adds a sense of movement and playfulness to the design, making it feel more realistic and  engaging. It also mimics the way real sticky notes might be placed on a corkboard, adding to the overall aesthetic and theme of the assessment. */
 
 
-/* =========================
-   POPUP
-   ========================= */
-
+/* POPUP*/
 .popup {
     display: none;
     position: fixed;
@@ -200,19 +197,13 @@ h1 {
     align-items: center;
     z-index: 9999;
 }
-
-
 /* Show popup when checkbox is checked */
-
 .interactive-note input:checked ~ .popup {
     display: flex;
 }
+/* I couldn't figure out how to make the popup appear when the sticky note is clicked. Youtube tutorials were super confusing and Google also didn't provide clear instructions, so I asked ChatGPT for help and it suggested me to use a checkbox input and CSS sibling selectors to show the popup when the checkbox is checked. I also used a fixed position for the popup to make it cover the entire viewport and center it on the screen. */
 
-
-/* =========================
-   DARK BACKGROUND
-   ========================= */
-
+/* DARK BACKGROUND */
 .popup-background {
     position: absolute;
     top: 0;
@@ -222,12 +213,9 @@ h1 {
     background: rgba(0, 0, 0, 0.5);
     cursor: pointer;
 }
+/* I made the background dark to create a contrast between the popup and the rest of the page, making it easier for users to focus on the content of the popup. The dark background also creates a sense of depth and makes the popup feel more like a modal window, which is a common design pattern for displaying additional information or content. The opacity of the background is set to 0.5 to allow some visibility of the underlying content while still providing enough contrast to make the popup stand out. */
 
-
-/* =========================
-   BIG STICKY NOTE
-   ========================= */
-
+/* BIG STICKY NOTE */
 .big-note {
     position: relative;
     z-index: 10000;
@@ -239,25 +227,18 @@ h1 {
         10px 15px 30px rgba(0, 0, 0, 0.4);
     text-align: center;
 }
+/* I made the big sticky note larger to show the answers instead of just slapping on the answers right on the sticky note. It makes the site feel more interactive and fun, clicking on the question to reveal the answer. The increased size allows for more detailed information or instructions to be displayed, making it easier for users to read and understand the content. The padding and box-sizing properties ensure that the content is well-spaced and visually appealing, while the box-shadow adds depth and makes the big sticky note stand out against the dark background. */
 
-
-/* =========================
-   BIG NOTE HEADING
-   ========================= */
-
+/* BIG NOTE HEADINGS */
 .big-note h2 {
     font-family: Georgia, serif;
     font-size: 42px;
     color: #333;
     text-shadow: none;
     margin-bottom: 30px;
-}
+}/* I kept the font and color the same as the sticky note headings to maintain consistency and cohesiveness in the design.*/
 
-
-/* =========================
-   BIG NOTE ANSWER
-   ========================= */
-
+/* BIG NOTE ANSWERS */
 .big-note p {
     font-family: Georgia, serif;
     font-size: 23px;
@@ -266,10 +247,7 @@ h1 {
 }
 
 
-/* =========================
-   BIG NOTE COLOURS
-   ========================= */
-
+/*BIG NOTE COLORS*/
 .note-row:nth-child(1) .interactive-note:nth-child(1) .big-note {
     background: #fff3a6;
 }
@@ -309,54 +287,36 @@ h1 {
 .note-row:nth-child(4) .interactive-note:nth-child(2) .big-note {
     background: #fff3a6;
 }
+/* I kept the colors of the big sticky notes the same as the small sticky notes to maintain consistency and cohesiveness in the design.*/
 
-/* =========================
-   PUSH PINS
-   ========================= */
-
+/* PUSH PIN */
 .pushpin {
     position: absolute;
-
     width: 18px;
     height: 18px;
-
     background: #b52b2b;
-
     border-radius: 50%;
-
     top: 1%;
     left: 50%;
-
     transform: translateX(-50%);
-
     box-shadow:
         2px 3px 4px rgba(0, 0, 0, 0.4);
-
     z-index: 5;
 }
 
-
 /* SHINY PART OF PUSH PIN */
-
 .pushpin::before {
     content: "";
-
     position: absolute;
-
     width: 6px;
     height: 6px;
-
     background: rgba(255, 255, 255, 0.6);
-
     border-radius: 50%;
-
     top: 3px;
     left: 4px;
 }
 
-
 /* LITTLE PIN POINT */
-
 .pushpin::after {
     content: "";
     position: absolute;
@@ -368,6 +328,9 @@ h1 {
     transform: rotate(180deg);
     z-index: -1;
 }
+/* I asked ChatGPT to guide me in the pushpin since I couldn't figure out how to make it. I wanted to make it look realistic and 3D, so I used a combination of CSS properties such as border-radius, box-shadow, and pseudo-elements to create the different parts of the pushpin. I also used a red color for the main body of the pushpin to make it stand out against the corkboard background. */
+
+/*IMAGES IN BIG NOTE*/
 .big-note img {
     display: block;
     width: 80%;
@@ -377,3 +340,4 @@ h1 {
     margin: 20px auto;
     box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.2);
 }
+/* I asked Google how to insert pictures in the big sticky note and it suggested me to use the <img> tag. I also used CSS properties such as width, max-width, max-height, and object-fit to ensure that the images are displayed correctly and do not overflow the boundaries of the big sticky note. */
