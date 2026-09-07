@@ -16,45 +16,45 @@
 
         <h1>Assessment Task 2: Digital Design Project 2</h1>
 
-        <h2>Kyara Richelle Herman s4190028</h2>
+        <h2>Kyara Richelle Herman - s4190028</h2>
 
 
         <div class="grid">
 
             <div class="box">
-                <img src="Artboard 1.png" data-active="Artboard 1 2.png" alt="Icon 1">
+                <img src="Artboard1@2x.png" data-active="Artboard1 2@2x.png" alt="Icon 1">
             </div>
 
             <div class="box">
-                <img src="Artboard 2.png" data-active="Artboard 2 2.png" alt="Icon 2">
+                <img src="Artboard2@2x.png" data-active="Artboard2 2@2x.png" alt="Icon 2">
             </div>
 
             <div class="box">
-                <img src="Artboard 3.png" data-active="Artboard 3 2.png" alt="Icon 3">
+                <img src="Artboard3@2x.png" data-active="Artboard3 2@2x.png" alt="Icon 3">
             </div>
 
             <div class="box">
-                <img src="Artboard 4.png" data-active="Artboard 4 2.png" alt="Icon 4">
+                <img src="Artboard4@2x.png" data-active="Artboard4 2@2x.png" alt="Icon 4">
             </div>
 
             <div class="box">
-                <img src="Artboard 5.png" data-active="Artboard 5 2.png" alt="Icon 5">
+                <img src="Artboard5@2x.png" data-active="Artboard5 2@2x.png" alt="Icon 5">
             </div>
 
             <div class="box">
-                <img src="Artboard 6.png" data-active="Artboard 6 2.png" alt="Icon 6">
+                <img src="Artboard6@2x.png" data-active="Artboard6 2@2x.png" alt="Icon 6">
             </div>
 
             <div class="box">
-                <img src="Artboard 7.png" data-active="Artboard 7 2.png" alt="Icon 7">
+                <img src="Artboard7@2x.png" data-active="Artboard7 2@2x.png" alt="Icon 7">
             </div>
 
             <div class="box">
-                <img src="Artboard 8.png" data-active="Artboard 8 2.png" alt="Icon 8">
+                <img src="Artboard8@2x.png" data-active="Artboard8 2@2x.png" alt="Icon 8">
             </div>
 
             <div class="box">
-                <img src="Artboard 9.png" data-active="Artboard 9 2.png" alt="Icon 9">
+                <img src="Artboard9@2x.png" data-active="Artboard9 2@2x.png" alt="Icon 9">
             </div>
 
         </div>
@@ -65,18 +65,16 @@
 
     icons.forEach(function(icon) {
 
+        // Save the original image
+        icon.dataset.original = icon.src;
+
         icon.addEventListener("click", function() {
 
-            const originalImage = icon.dataset.original || icon.src;
-            const activeImage = icon.dataset.active;
-
-            icon.dataset.original = originalImage;
-
-            icon.src = activeImage;
-
-            setTimeout(function() {
+            if (icon.src === icon.dataset.original) {
+                icon.src = icon.dataset.active;
+            } else {
                 icon.src = icon.dataset.original;
-            }, 1000);
+            }
 
         });
 
