@@ -86,27 +86,30 @@
 
     icons.forEach(function(icon) {
 
-        // Save original image
         icon.dataset.original = icon.src;
 
-        // Create the sound
         const sound = new Audio(icon.dataset.sound);
-        sound.loop = false;
 
         icon.addEventListener("click", function() {
 
-            // Change image
+            // Toggle image
             if (icon.src === icon.dataset.original) {
                 icon.src = icon.dataset.active;
             } else {
                 icon.src = icon.dataset.original;
             }
 
-            // Play sound
+            // Stop the sound if it's already playing
+            sound.pause();
             sound.currentTime = 0;
+
+            // Play the sound once
             sound.play();
 
         });
+
+        // Make absolutely sure it doesn't loop
+        sound.loop = false;
 
     });
 </script>
