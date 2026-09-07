@@ -22,39 +22,66 @@
         <div class="grid">
 
             <div class="box">
-                <img src="Artboard1@2x.png" data-active="Artboard1 2@2x.png" alt="Icon 1">
+                <img src="Artboard1@2x.png" 
+                data-active="Artboard1 2@2x.png" 
+                data-sound="camera.mp3" 
+                alt="Icon 1">
             </div>
 
             <div class="box">
-                <img src="Artboard2@2x.png" data-active="Artboard2 2@2x.png" alt="Icon 2">
+                <img src="Artboard2@2x.png" 
+                data-active="Artboard2 2@2x.png" 
+                data-sound="polaroid.mp3" 
+                alt="Icon 2">
             </div>
 
             <div class="box">
-                <img src="Artboard3@2x.png" data-active="Artboard3 2@2x.png" alt="Icon 3">
+                <img src="Artboard3@2x.png" 
+                data-active="Artboard3 2@2x.png" 
+                data-sound="book.mp3" 
+                alt="Icon 3">
             </div>
 
             <div class="box">
-                <img src="Artboard4@2x.png" data-active="Artboard4 2@2x.png" alt="Icon 4">
+                <img src="Artboard4@2x.png" 
+                data-active="Artboard4 2@2x.png" 
+                data-sound="cassette.mp3" 
+                alt="Icon 4">
             </div>
 
             <div class="box">
-                <img src="Artboard5@2x.png" data-active="Artboard5 2@2x.png" alt="Icon 5">
+                <img src="Artboard5@2x.png" 
+                data-active="Artboard5 2@2x.png" 
+                data-sound="clock.mp3" 
+                alt="Icon 5">
             </div>
 
             <div class="box">
-                <img src="Artboard6@2x.png" data-active="Artboard6 2@2x.png" alt="Icon 6">
+                <img src="Artboard6@2x.png" 
+                data-active="Artboard6 2@2x.png" 
+                data-sound="teddy.mp3" 
+                alt="Icon 6">
             </div>
 
             <div class="box">
-                <img src="Artboard7@2x.png" data-active="Artboard7 2@2x.png" alt="Icon 7">
+                <img src="Artboard7@2x.png" 
+                data-active="Artboard7 2@2x.png" 
+                data-sound="mail.mp3" 
+                alt="Icon 7">
             </div>
 
             <div class="box">
-                <img src="Artboard8@2x.png" data-active="Artboard8 2@2x.png" alt="Icon 8">
+                <img src="Artboard8@2x.png" 
+                data-active="Artboard8 2@2x.png" 
+                data-sound="balloon.mp3" 
+                alt="Icon 8">
             </div>
 
             <div class="box">
-                <img src="Artboard9@2x.png" data-active="Artboard9 2@2x.png" alt="Icon 9">
+                <img src="Artboard9@2x.png" 
+                data-active="Artboard9 2@2x.png" 
+                data-sound="cloud.mp3" 
+                alt="Icon 9">
             </div>
 
         </div>
@@ -65,16 +92,24 @@
 
     icons.forEach(function(icon) {
 
-        // Save the original image
+        // Save original image
         icon.dataset.original = icon.src;
+
+        // Create the sound
+        const sound = new Audio(icon.dataset.sound);
 
         icon.addEventListener("click", function() {
 
+            // Change image
             if (icon.src === icon.dataset.original) {
                 icon.src = icon.dataset.active;
             } else {
                 icon.src = icon.dataset.original;
             }
+
+            // Play sound
+            sound.currentTime = 0;
+            sound.play();
 
         });
 
