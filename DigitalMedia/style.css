@@ -10,22 +10,6 @@ body {
     font-family: Arial, sans-serif;
 }
 
-.content {
-    text-align: center;
-}
-
-h1 {
-    font-size: 30px;
-    margin-bottom: 8px;
-}
-
-h2 {
-    font-size: 18px;
-    font-weight: normal;
-    margin-top: 0;
-    margin-bottom: 30px;
-}
-
 .grid {
     display: grid;
     grid-template-columns: repeat(3, 150px);
