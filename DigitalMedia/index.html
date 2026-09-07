@@ -86,9 +86,12 @@
 
     icons.forEach(function(icon) {
 
+        // Save original image
         icon.dataset.original = icon.src;
 
+        // Create sound
         const sound = new Audio(icon.dataset.sound);
+        sound.loop = false;
 
         icon.addEventListener("click", function() {
 
@@ -99,17 +102,18 @@
                 icon.src = icon.dataset.original;
             }
 
-            // Stop the sound if it's already playing
+            // Stop and restart sound
             sound.pause();
             sound.currentTime = 0;
-
-            // Play the sound once
             sound.play();
 
-        });
+            // Stop sound after 3 seconds
+            setTimeout(function() {
+                sound.pause();
+                sound.currentTime = 0;
+            }, 3000);
 
-        // Make absolutely sure it doesn't loop
-        sound.loop = false;
+        });
 
     });
 </script>
