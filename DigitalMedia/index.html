@@ -91,6 +91,7 @@
 
         // Create the sound
         const sound = new Audio(icon.dataset.sound);
+        sound.loop = false;
 
         icon.addEventListener("click", function() {
 
