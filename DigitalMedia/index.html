@@ -64,18 +64,22 @@
     const icons = document.querySelectorAll(".box img");
 
     icons.forEach(function(icon) {
+
         icon.addEventListener("click", function() {
 
-            const originalImage = icon.src;
+            const originalImage = icon.dataset.original || icon.src;
             const activeImage = icon.dataset.active;
+
+            icon.dataset.original = originalImage;
 
             icon.src = activeImage;
 
             setTimeout(function() {
-                icon.src = originalImage;
+                icon.src = icon.dataset.original;
             }, 1000);
 
         });
+
     });
 </script>
 </body>
