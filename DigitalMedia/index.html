@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-
 <body>
 
     <div class="content">
@@ -19,24 +18,66 @@
 
         <h2>Kyara Richelle Herman s4190028</h2>
 
+
         <div class="grid">
 
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
+            <div class="box">
+                <img src="cam1.png" data-active="cam2.png" alt="Icon 1">
+            </div>
 
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
+            <div class="box">
+                <img src="polaroid1.png" data-active="polaroid2.png" alt="Icon 2">
+            </div>
 
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
+            <div class="box">
+                <img src="book1.png" data-active="book2.png" alt="Icon 3">
+            </div>
+
+            <div class="box">
+                <img src="cassette1.png" data-active="cassette2.png" alt="Icon 4">
+            </div>
+
+            <div class="box">
+                <img src="clock1.png" data-active="clock2.png" alt="Icon 5">
+            </div>
+
+            <div class="box">
+                <img src="teddy1.png" data-active="teddy2.png" alt="Icon 6">
+            </div>
+
+            <div class="box">
+                <img src="mail1.png" data-active="mail2.png" alt="Icon 7">
+            </div>
+
+            <div class="box">
+                <img src="balloon1.png" data-active="balloon2.png" alt="Icon 8">
+            </div>
+
+            <div class="box">
+                <img src="cloud1.png" data-active="cloud2.png" alt="Icon 9">
+            </div>
 
         </div>
 
     </div>
+<script>
+    const icons = document.querySelectorAll(".box img");
 
+    icons.forEach(function(icon) {
+        icon.addEventListener("click", function() {
+
+            const originalImage = icon.src;
+            const activeImage = icon.dataset.active;
+
+            icon.src = activeImage;
+
+            setTimeout(function() {
+                icon.src = originalImage;
+            }, 1000);
+
+        });
+    });
+</script>
 </body>
 
 </html>
