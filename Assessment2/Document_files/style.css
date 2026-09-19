@@ -60,7 +60,7 @@ header {
   max-width: 1200px;
 
   margin-top: 12px;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 
   padding: 25px 20px;
 
@@ -75,7 +75,7 @@ header {
   transform: rotate(-0.5deg);
 
   position: relative;
-  z-index: 5;
+  z-index: 2;
 }
 
 header h1 {
@@ -99,7 +99,7 @@ header p {
   width: 100%;
   max-width: 1450px;
 
-  padding: 0 25px 25px;
+  padding: 0 25px 20px;
 
   margin: 0 auto;
 
@@ -108,7 +108,7 @@ header p {
 
 
 /* =========================================
-   TURNTABLE SECTION
+   VINYL PLAYER SECTION
 ========================================= */
 
 .vinyl-section {
@@ -146,121 +146,53 @@ header p {
 
 
 /* =========================================
-   VINYL RECORD IMAGE
+   COMBINED VINYL AND TONEARM IMAGE
 ========================================= */
 
-.vinyl-image {
+.vinyl-setup-image {
   position: absolute;
 
-  /* Controls the size of the record */
-  width: 48%;
+  width: 68%;
   height: auto;
 
-  /* Positions the record on the left */
-  left: 7%;
+  left: 2%;
   top: 50%;
 
   transform: translateY(-50%);
 
   object-fit: contain;
 
-  /* Record sits underneath the tonearm */
+  display: block;
+
   z-index: 1;
-
-  display: block;
 }
 
 
 /* =========================================
-   TONEARM IMAGE
-========================================= */
-
-.tonearm-image {
-  position: absolute;
-
-  /* Controls the size of the tonearm */
-  width: 28%;
-  height: auto;
-
-  /* Positions the tonearm so it overlaps the record */
-  left: 40%;
-  top: 8%;
-
-  object-fit: contain;
-
-  /* Tonearm sits above the vinyl */
-  z-index: 2;
-
-  display: block;
-
-  pointer-events: none;
-}
-
-
-/* =========================================
-   REMOTE CONTROL
+   LARGE DECORATIVE REMOTE
 ========================================= */
 
 .remote {
   position: absolute;
 
-  width: 100px;
-  height: 240px;
+  width: 150px;
+  height: 390px;
 
-  /* Places the remote on the right */
   right: 5%;
   top: 50%;
 
   transform: translateY(-50%);
 
-  background-color: #a0a0a0;
+  background-color: #999999;
 
-  border: 2px solid #858585;
-  border-radius: 12px;
+  border: 3px solid #777777;
+  border-radius: 18px;
 
   box-shadow:
-    0 4px 8px rgba(0, 0, 0, 0.25),
-    inset 0 2px 4px rgba(255, 255, 255, 0.3);
+    0 5px 10px rgba(0, 0, 0, 0.3),
+    inset 0 3px 6px rgba(255, 255, 255, 0.3);
 
-  display: flex;
-  flex-direction: column;
-
-  justify-content: space-evenly;
-  align-items: center;
-
-  z-index: 3;
-}
-
-
-/* Individual remote buttons */
-
-.remote-button {
-  width: 44px;
-  height: 44px;
-
-  border-radius: 50%;
-
-  background-color: #686868;
-
-  border: 1px solid #555;
-
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-
-  cursor: pointer;
-}
-
-
-/* Button hover effect */
-
-.remote-button:hover {
-  background-color: #777;
-}
-
-
-/* Button press effect */
-
-.remote-button:active {
-  transform: scale(0.95);
+  z-index: 2;
 }
 
 
@@ -304,7 +236,7 @@ footer a:hover {
   header {
     width: 94%;
     padding: 18px 12px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
 
   header h1 {
@@ -320,31 +252,22 @@ footer a:hover {
   }
 
   .turntable {
-    border-radius: 18px;
     aspect-ratio: 1.2 / 1;
+    border-radius: 18px;
   }
 
-  .vinyl-image {
-    width: 58%;
-    left: 2%;
-  }
-
-  .tonearm-image {
-    width: 35%;
-    left: 42%;
-    top: 12%;
+  .vinyl-setup-image {
+    width: 75%;
+    left: -3%;
   }
 
   .remote {
-    width: 58px;
-    height: 170px;
+    width: 75px;
+    height: 220px;
 
     right: 3%;
-  }
 
-  .remote-button {
-    width: 30px;
-    height: 30px;
+    border-radius: 12px;
   }
 
   footer {
