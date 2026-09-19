@@ -133,7 +133,9 @@ header p {
 
   box-shadow: 0 12px 20px rgba(0, 0, 0, 0.35);
 
-  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
@@ -213,6 +215,8 @@ footer a:hover {
   }
 
   .turntable {
+    width: 100%;
+    aspect-ratio: 1 / 1;
     border-radius: 18px;
   }
 
@@ -220,15 +224,9 @@ footer a:hover {
     padding: 20px 0;
   }
 
-  .vinyl-image {
-    width: 75%;
-    left: 35%;
-  }
-
-  .tonearm-image {
-   height: 75%;
-    right: 3%;
-    top: 10%;
+  .vinyl-setup-image {
+    width: 95%;
+    max-height: 95%;
   }
 
   footer {
