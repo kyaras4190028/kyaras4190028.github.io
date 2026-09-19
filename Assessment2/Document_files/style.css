@@ -1,13 +1,13 @@
 /* =========================================
-   COLOURS
+   COLOUR VARIABLES
 ========================================= */
 
 :root {
-    --wood-colour: #795039;
-    --paper-colour: #f3e7cf;
-    --paper-text: #35271f;
-    --beige-text: #f5e6d3;
-    --turntable-colour: #d5d5d5;
+  --wood-colour: #795039;
+  --paper-colour: #f3e7cf;
+  --paper-text: #35271f;
+  --beige-text: #f5e6d3;
+  --turntable-colour: #d5d5d5;
 }
 
 
@@ -19,32 +19,32 @@ body,
 h1,
 p,
 ul {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: "Special Elite", monospace;
+  font-family: "Special Elite", monospace;
 
-    background-color: var(--wood-colour);
-    background-image: url("./wood-bg.jpeg");
+  background-color: var(--wood-colour);
+  background-image: url("./wood-bg.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+  color: #30251e;
+  line-height: 1.6;
 
-    color: #30251e;
-    line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    min-height: 100vh;
+  min-height: 100vh;
 }
 
 
@@ -53,38 +53,41 @@ body {
 ========================================= */
 
 header {
-    background-color: var(--paper-colour);
-    color: var(--paper-text);
+  background-color: var(--paper-colour);
+  color: var(--paper-text);
 
-    width: 95%;
-    max-width: 1200px;
+  width: 95%;
+  max-width: 1200px;
 
-    margin-top: 12px;
-    padding: 25px 20px;
+  margin-top: 12px;
+  margin-bottom: 25px;
 
-    text-align: center;
+  padding: 25px 20px;
 
-    border: 1px solid #d4c3a6;
+  text-align: center;
 
-    box-shadow:
-        2px 4px 8px rgba(0, 0, 0, 0.3),
-        inset 0 0 12px rgba(120, 90, 50, 0.08);
+  border: 1px solid #d4c3a6;
 
-    transform: rotate(-0.5deg);
+  box-shadow:
+    2px 4px 8px rgba(0, 0, 0, 0.3),
+    inset 0 0 12px rgba(120, 90, 50, 0.08);
 
-    z-index: 5;
+  transform: rotate(-0.5deg);
+
+  position: relative;
+  z-index: 5;
 }
 
 header h1 {
-    font-size: 27px;
-    letter-spacing: 1px;
-    line-height: 1.4;
+  font-size: 27px;
+  letter-spacing: 1px;
+  line-height: 1.4;
 }
 
 header p {
-    font-size: 20px;
-    margin-top: 10px;
-    color: #72533d;
+  font-size: 20px;
+  margin-top: 10px;
+  color: #72533d;
 }
 
 
@@ -93,30 +96,30 @@ header p {
 ========================================= */
 
 .container {
-    width: 100%;
-    max-width: 1400px;
+  width: 100%;
+  max-width: 1450px;
 
-    padding: 0 20px;
+  padding: 0 25px 25px;
 
-    flex: 1;
+  margin: 0 auto;
+
+  flex: 1;
 }
+
+
+/* =========================================
+   TURNTABLE SECTION
+========================================= */
 
 .vinyl-section {
-    width: 100%;
+  width: 100%;
 
-    padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    margin-top: -50px;
-}
-
-.vinyl-player {
-    width: 100%;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 
@@ -125,111 +128,72 @@ header p {
 ========================================= */
 
 .turntable {
-    position: relative;
+  position: relative;
 
-    width: 100%;
-    max-width: 1250px;
-    aspect-ratio: 1.85 / 1;
+  width: 100%;
+  max-width: 1250px;
 
-    background-color: var(--turntable-colour);
+  aspect-ratio: 1.85 / 1;
 
-    border: none;
-    border-radius: 28px;
+  background-color: var(--turntable-colour);
 
-    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.35);
+  border-radius: 28px;
 
-    overflow: hidden;
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.35);
+
+  overflow: hidden;
 }
 
 
 /* =========================================
-   VINYL RECORD
+   VINYL RECORD IMAGE
 ========================================= */
 
 .vinyl-image {
-    position: absolute;
+  position: absolute;
 
-    width: 48%;
-    height: auto;
+  /* Controls the size of the record */
+  width: 48%;
+  height: auto;
 
-    left: 8%;
-    top: 50%;
+  /* Positions the record on the left */
+  left: 7%;
+  top: 50%;
 
-    transform: translateY(-50%);
+  transform: translateY(-50%);
 
-    object-fit: contain;
+  object-fit: contain;
 
-    transform-origin: center center;
+  /* Record sits underneath the tonearm */
+  z-index: 1;
 
-    z-index: 1;
-
-    cursor: pointer;
+  display: block;
 }
 
 
 /* =========================================
-   VINYL SPINNING ANIMATION
-========================================= */
-
-.vinyl.spinning {
-    animation: spin 2.5s linear infinite;
-}
-
-@keyframes spin {
-
-    from {
-        transform: translateY(-50%) rotate(0deg);
-    }
-
-    to {
-        transform: translateY(-50%) rotate(360deg);
-    }
-
-}
-
-
-/* =========================================
-   TONEARM
+   TONEARM IMAGE
 ========================================= */
 
 .tonearm-image {
-    position: absolute;
+  position: absolute;
 
-    width: 27%;
-    height: auto;
+  /* Controls the size of the tonearm */
+  width: 28%;
+  height: auto;
 
-    left: 47%;
-    top: 8%;
+  /* Positions the tonearm so it overlaps the record */
+  left: 40%;
+  top: 8%;
 
-    object-fit: contain;
+  object-fit: contain;
 
-    z-index: 2;
+  /* Tonearm sits above the vinyl */
+  z-index: 2;
 
-    cursor: pointer;
+  display: block;
 
-    pointer-events: none;
-
-    /* Pivot point of the tonearm */
-    transform-origin: 15% 15%;
-
-    transform: rotate(0deg);
-
-    transition: transform 0.8s ease;
-}
-
-
-/* Tonearm moves onto the vinyl */
-
-.tonearm.playing {
-    transform: rotate(-25deg);
-}
-
-
-/* Keyboard accessibility */
-
-.tonearm:focus-visible {
-    outline: 3px solid #795039;
-    outline-offset: 5px;
+  pointer-events: none;
 }
 
 
@@ -238,45 +202,65 @@ header p {
 ========================================= */
 
 .remote {
-    position: absolute;
+  position: absolute;
 
-    width: 8%;
-    height: 35%;
+  width: 100px;
+  height: 240px;
 
-    right: 5%;
-    top: 32%;
+  /* Places the remote on the right */
+  right: 5%;
+  top: 50%;
 
-    background-color: #999999;
+  transform: translateY(-50%);
 
-    border: 2px solid #777777;
-    border-radius: 12px;
+  background-color: #a0a0a0;
 
-    box-shadow:
-        inset 0 2px 5px rgba(255, 255, 255, 0.3),
-        0 3px 6px rgba(0, 0, 0, 0.2);
+  border: 2px solid #858585;
+  border-radius: 12px;
 
-    z-index: 4;
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.25),
+    inset 0 2px 4px rgba(255, 255, 255, 0.3);
 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-evenly;
+  align-items: center;
+
+  z-index: 3;
 }
 
 
-/* Remote buttons */
+/* Individual remote buttons */
 
 .remote-button {
-    width: 45%;
+  width: 44px;
+  height: 44px;
 
-    aspect-ratio: 1 / 1;
+  border-radius: 50%;
 
-    background-color: #666666;
+  background-color: #686868;
 
-    border: 1px solid #555555;
-    border-radius: 50%;
+  border: 1px solid #555;
 
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+  cursor: pointer;
+}
+
+
+/* Button hover effect */
+
+.remote-button:hover {
+  background-color: #777;
+}
+
+
+/* Button press effect */
+
+.remote-button:active {
+  transform: scale(0.95);
 }
 
 
@@ -285,31 +269,29 @@ header p {
 ========================================= */
 
 footer {
-    background: transparent;
-    color: var(--beige-text);
+  background: transparent;
+  color: var(--beige-text);
 
-    text-align: center;
+  text-align: center;
 
-    padding: 10px;
+  padding: 10px;
+  width: 100%;
 
-    width: 100%;
+  border: none;
+  box-shadow: none;
 
-    border: none;
-    box-shadow: none;
-
-    font-size: 14px;
+  font-size: 14px;
 }
 
 footer a,
 footer a:visited {
-    color: var(--beige-text);
-
-    text-decoration: none;
-    border: none;
+  color: var(--beige-text);
+  text-decoration: none;
+  border: none;
 }
 
 footer a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 
@@ -319,92 +301,53 @@ footer a:hover {
 
 @media (max-width: 700px) {
 
-    header {
-        width: 94%;
-        padding: 18px 12px;
-    }
+  header {
+    width: 94%;
+    padding: 18px 12px;
+    margin-bottom: 20px;
+  }
 
-    header h1 {
-        font-size: 21px;
-    }
+  header h1 {
+    font-size: 21px;
+  }
 
-    header p {
-        font-size: 16px;
-    }
+  header p {
+    font-size: 16px;
+  }
 
-    .container {
-        padding: 0 10px;
-    }
+  .container {
+    padding: 0 10px 20px;
+  }
 
-    .vinyl-section {
-        padding: 20px 0;
-        margin-top: -10px;
-    }
+  .turntable {
+    border-radius: 18px;
+    aspect-ratio: 1.2 / 1;
+  }
 
-    .turntable {
-        width: 100%;
+  .vinyl-image {
+    width: 58%;
+    left: 2%;
+  }
 
-        aspect-ratio: 1 / 1;
+  .tonearm-image {
+    width: 35%;
+    left: 42%;
+    top: 12%;
+  }
 
-        border-radius: 18px;
-    }
+  .remote {
+    width: 58px;
+    height: 170px;
 
-    .vinyl {
-        width: 48%;
+    right: 3%;
+  }
 
-        left: 3%;
-    }
+  .remote-button {
+    width: 30px;
+    height: 30px;
+  }
 
-    .tonearm {
-        width: 30%;
-
-        left: 50%;
-        top: 15%;
-    }
-
-    .remote {
-        width: 10%;
-        height: 30%;
-
-        right: 3%;
-        top: 35%;
-    }
-
-    footer {
-        font-size: 12px;
-    }
-
-}
-
-/* FIX THE SPACING BETWEEN THE HEADER AND TURNTABLE */
-
-header {
-  position: relative;
-  z-index: 2;
-  margin-bottom: 25px;
-}
-
-.container {
-  position: relative;
-  margin-top: 0;
-  padding-top: 0;
-}
-
-.vinyl-section {
-  margin-top: 0;
-  padding-top: 0;
-}
-
-.vinyl-player {
-  margin-top: 0;
-  padding-top: 0;
-}
-
-/* CENTRE THE TURNTABLE */
-
-.turntable {
-  width: 100%;
-  max-width: 1250px;
-  margin: 0 auto;
-  position: relative;
+  footer {
+    font-size: 12px;
+  }
 }

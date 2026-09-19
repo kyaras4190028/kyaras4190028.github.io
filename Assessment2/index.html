@@ -2,207 +2,80 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Music Album Player</title>
+  <title>Music Album Player</title>
 
-    <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Vintage typewriter font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap"
-          rel="stylesheet">
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="./Document_files/reset.css">
-    <link rel="stylesheet" href="./Document_files/style.css">
-
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="./Document_files/reset.css">
+  <link rel="stylesheet" href="./Document_files/style.css">
 </head>
 
 <body>
 
-    <!-- Header -->
-    <header>
+  <!-- PAPER HEADER -->
+  <header>
+    <h1>Assessment 2 - Browser-based Interactive Experiments</h1>
+    <p>Kyara Herman - s4190028</p>
+  </header>
 
-        <h1>Assessment 2 - Browser-based Interactive Experiments</h1>
 
-        <p>Kyara Herman - s4190028</p>
+  <!-- MAIN CONTENT -->
+  <main class="container">
 
-    </header>
+    <!-- TURNTABLE SECTION -->
+    <section class="vinyl-section">
 
+      <div class="turntable">
 
-    <!-- Main Content -->
-    <main class="container">
+        <!-- Vinyl record image -->
+        <img
+          src="./Document_files/vinyl.png"
+          alt="Vinyl record"
+          class="vinyl-image"
+        >
 
-        <section class="vinyl-section">
+        <!-- Separate tonearm image -->
+        <img
+          src="./Document_files/tonearm.png"
+          alt="Turntable tonearm"
+          class="tonearm-image"
+        >
 
-            <div class="vinyl-player">
+        <!-- REMOTE CONTROL -->
+        <div class="remote">
 
-                <!-- Turntable -->
-                <div class="turntable" id="turntable">
+          <button class="remote-button" aria-label="Play"></button>
 
+          <button class="remote-button" aria-label="Pause"></button>
 
-                    <!-- Vinyl record -->
-                    <img
-                        src="./Document_files/vinyl.png"
-                        alt="Vinyl record"
-                        class="vinyl"
-                        id="vinyl"
-                    >
+          <button class="remote-button" aria-label="Stop"></button>
 
+        </div>
 
-                    <!-- Tonearm -->
-                    <img
-                        src="./Document_files/tonearm.png"
-                        alt="Tonearm. Click to play or pause the record."
-                        class="tonearm"
-                        id="tonearm"
-                        role="button"
-                        tabindex="0"
-                        aria-label="Play or pause the record"
-                        aria-pressed="false"
-                    >
+      </div>
 
+    </section>
 
-                    <!-- Remote control on the right -->
-                    <div class="remote">
+  </main>
 
-                        <div class="remote-button"></div>
 
-                        <div class="remote-button"></div>
+  <!-- FOOTER / ICON CREDITS -->
+  <footer>
+    <a href="https://icons8.com/icon/59862/play">Play</a> icon by
+    <a href="https://icons8.com/">Icons8</a>
 
-                        <div class="remote-button"></div>
+    <span> | </span>
 
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- Music file -->
-    <audio id="music" src="./Document_files/music.mp3" preload="auto"></audio>
-
-
-    <!-- Footer -->
-    <footer>
-
-        <a href="https://icons8.com/icon/59862/play">Play</a>
-        icon by
-        <a href="https://icons8.com/">Icons8</a>
-
-        <span> | </span>
-
-        <a href="https://icons8.com/icon/61012/pause">Pause</a>
-        icon by
-        <a href="https://icons8.com/">Icons8</a>
-
-    </footer>
-
-
-    <!-- JavaScript -->
-    <script>
-
-        const tonearm = document.getElementById("tonearm");
-        const vinyl = document.getElementById("vinyl");
-        const music = document.getElementById("music");
-
-        let playing = false;
-
-
-        // Function to play or pause the record
-        function toggleRecord() {
-
-            if (!playing) {
-
-                // Move the tonearm onto the vinyl
-                tonearm.classList.add("playing");
-
-                // Start spinning the vinyl
-                vinyl.classList.add("spinning");
-
-                // Update accessibility state
-                tonearm.setAttribute("aria-pressed", "true");
-
-                playing = true;
-
-                // Start music after the tonearm begins moving
-                setTimeout(function () {
-
-                    if (playing) {
-
-                        music.play().catch(function (error) {
-
-                            console.log("Music could not play:", error);
-
-                        });
-
-                    }
-
-                }, 800);
-
-            } else {
-
-                // Move the tonearm back to its original position
-                tonearm.classList.remove("playing");
-
-                // Stop the vinyl spinning
-                vinyl.classList.remove("spinning");
-
-                // Pause the music
-                music.pause();
-
-                // Reset music to the beginning
-                music.currentTime = 0;
-
-                // Update accessibility state
-                tonearm.setAttribute("aria-pressed", "false");
-
-                playing = false;
-
-            }
-
-        }
-
-
-        // Click the tonearm to play or pause
-        tonearm.addEventListener("click", toggleRecord);
-
-
-        // Allow keyboard interaction
-        tonearm.addEventListener("keydown", function (event) {
-
-            if (event.key === "Enter" || event.key === " ") {
-
-                event.preventDefault();
-
-                toggleRecord();
-
-            }
-
-        });
-
-
-        // Stop spinning and return the tonearm when music ends
-        music.addEventListener("ended", function () {
-
-            tonearm.classList.remove("playing");
-
-            vinyl.classList.remove("spinning");
-
-            tonearm.setAttribute("aria-pressed", "false");
-
-            playing = false;
-
-        });
-
-    </script>
+    <a href="https://icons8.com/icon/61012/pause">Pause</a> icon by
+    <a href="https://icons8.com/">Icons8</a>
+  </footer>
 
 </body>
-
 </html>
