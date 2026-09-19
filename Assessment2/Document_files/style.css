@@ -129,7 +129,6 @@ header p {
 
     width: 100%;
     max-width: 1250px;
-
     aspect-ratio: 1.85 / 1;
 
     background-color: var(--turntable-colour);
@@ -147,10 +146,11 @@ header p {
    VINYL RECORD
 ========================================= */
 
-.vinyl {
+.vinyl-image {
     position: absolute;
 
-    width: 40%;
+    width: 48%;
+    height: auto;
 
     left: 8%;
     top: 50%;
@@ -161,7 +161,7 @@ header p {
 
     transform-origin: center center;
 
-    z-index: 2;
+    z-index: 1;
 
     cursor: pointer;
 }
@@ -192,19 +192,22 @@ header p {
    TONEARM
 ========================================= */
 
-.tonearm {
+.tonearm-image {
     position: absolute;
 
-    width: 25%;
+    width: 27%;
+    height: auto;
 
-    left: 48%;
-    top: 10%;
+    left: 47%;
+    top: 8%;
 
     object-fit: contain;
 
-    z-index: 3;
+    z-index: 2;
 
     cursor: pointer;
+
+    pointer-events: none;
 
     /* Pivot point of the tonearm */
     transform-origin: 15% 15%;
@@ -371,4 +374,37 @@ footer a:hover {
         font-size: 12px;
     }
 
+}
+
+/* FIX THE SPACING BETWEEN THE HEADER AND TURNTABLE */
+
+header {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 25px;
+}
+
+.container {
+  position: relative;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.vinyl-section {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.vinyl-player {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* CENTRE THE TURNTABLE */
+
+.turntable {
+  width: 100%;
+  max-width: 1250px;
+  margin: 0 auto;
+  position: relative;
 }
