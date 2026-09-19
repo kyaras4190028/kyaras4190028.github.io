@@ -124,7 +124,7 @@ header p {
   position: relative;
 
   width: 100%;
-  max-width: 1100px;
+  max-width: 1250px;
   aspect-ratio: 1.85 / 1;
 
   background-color: #d5d5d5;
@@ -145,7 +145,7 @@ header p {
 .vinyl-image {
   position: absolute;
 
-  height: 88%;
+  height: 92%;
   width: auto;
 
   left: 35%;
@@ -165,11 +165,13 @@ header p {
 .tonearm-image {
   position: absolute;
 
-  height: 70%;
+  height: 80%;
   width: auto;
 
-  right: 20%;
-  top: 8%;
+  right: 30%;
+  top: -5%;
+
+  transform: rotate(15deg);
 
   object-fit: contain;
   z-index: 2;
