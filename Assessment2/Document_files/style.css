@@ -1,10 +1,19 @@
+/* =========================================
+   COLOURS
+========================================= */
+
 :root {
-  --primary-bg-color: #70452f;
-  --text-color: #f5e6d3;
-  --main-bg-color: #292626;
-  --main-text-color: #f5e6d3;
-  --main-btn-bg-color: #8b6046;
+  --wood-colour: #795039;
+  --paper-colour: #f3e7cf;
+  --paper-text: #35271f;
+  --beige-text: #f5e6d3;
+  --turntable-colour: #d5d5d5;
 }
+
+
+/* =========================================
+   BASIC PAGE STYLING
+========================================= */
 
 body,
 h1,
@@ -14,14 +23,15 @@ ul {
   padding: 0;
 }
 
-/* BODY AND WOODEN BACKGROUND */
+* {
+  box-sizing: border-box;
+}
 
 body {
   font-family: "Special Elite", monospace;
 
-  background-color: #795039;
+  background-color: var(--wood-colour);
   background-image: url("./wood-bg.jpeg");
-
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -36,27 +46,14 @@ body {
   min-height: 100vh;
 }
 
-/* Add additional styles as needed */
 
-/* Create a container for the main content */
-.container {
-  max-width: 1000px;
-  width: 100%;
-  padding: 10px;
-  box-sizing:border-box;
-  flex: 1;
-}
-
-/* Header styling */
-/* PAPER HEADER */
+/* =========================================
+   PAPER HEADER
+========================================= */
 
 header {
-  /* A warm cream colour gives the header the appearance
-     of aged paper rather than a modern website banner. */
-
-  background-color: #f3e7cf;
-
-  color: #35271f;
+  background-color: var(--paper-colour);
+  color: var(--paper-text);
 
   width: 95%;
   max-width: 1200px;
@@ -65,11 +62,6 @@ header {
   padding: 25px 20px;
 
   text-align: center;
-
-  box-sizing: border-box;
-
-  /* Slightly irregular edges and shadows help the paper
-     feel like a physical object sitting on the wood. */
 
   border: 1px solid #d4c3a6;
 
@@ -80,49 +72,183 @@ header {
   transform: rotate(-0.5deg);
 }
 
-/* ASSIGNMENT TITLE */
-
 header h1 {
   font-size: 27px;
-
   letter-spacing: 1px;
   line-height: 1.4;
-
-  margin: 0;
 }
-
-/* STUDENT NAME */
 
 header p {
   font-size: 20px;
-
   margin-top: 10px;
-
   color: #72533d;
 }
 
 
-/* Footer styling */
+/* =========================================
+   MAIN CONTENT
+========================================= */
+
+.container {
+  width: 100%;
+  max-width: 1400px;
+
+  padding: 30px 20px;
+
+  flex: 1;
+}
+
+
+/* =========================================
+   VINYL PLAYER LAYOUT
+========================================= */
+
+.vinyl-player {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  width: 100%;
+  padding: 20px 0;
+}
+
+
+/* =========================================
+   TURNTABLE BASE
+========================================= */
+
+.turntable {
+  position: relative;
+
+  width: 100%;
+  max-width: 1200px;
+
+  aspect-ratio: 1.85 / 1;
+
+  background-color: var(--turntable-colour);
+  border: none;
+  border-radius: 28px;
+
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.35);
+
+  overflow: hidden;
+}
+
+
+/* =========================================
+   VINYL IMAGE
+========================================= */
+
+.vinyl-image {
+  position: absolute;
+
+  width: 48%;
+  height: auto;
+
+  left: 34%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  object-fit: contain;
+  display: block;
+
+  z-index: 1;
+}
+
+
+/* =========================================
+   TONEARM IMAGE
+========================================= */
+
+.tonearm-image {
+  position: absolute;
+
+  width: 42%;
+  height: auto;
+
+  top: 8%;
+  right: 5%;
+
+  z-index: 2;
+
+  object-fit: contain;
+  display: block;
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   FOOTER / ICON CREDITS
+========================================= */
 
 footer {
   background: transparent;
-  color: #f5e6d3;
+  color: var(--beige-text);
+
   text-align: center;
+
   padding: 10px;
   width: 100%;
+
   border: none;
   box-shadow: none;
+
   font-size: 14px;
-  box-sizing: border-box;
 }
 
 footer a,
 footer a:visited {
-  color: #f5e6d3;
+  color: var(--beige-text);
   text-decoration: none;
   border: none;
 }
 
 footer a:hover {
   text-decoration: underline;
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 700px) {
+
+  header {
+    width: 94%;
+    padding: 18px 12px;
+  }
+
+  header h1 {
+    font-size: 21px;
+  }
+
+  header p {
+    font-size: 16px;
+  }
+
+  .container {
+    padding: 20px 10px;
+  }
+
+  .turntable {
+    border-radius: 18px;
+  }
+
+  .vinyl-image {
+    width: 75%;
+    left: 39%;
+  }
+
+  .tonearm-image {
+    width: 40%;
+    top: 5%;
+    right: 3%;
+  }
+
+  footer {
+    font-size: 12px;
+  }
 }
