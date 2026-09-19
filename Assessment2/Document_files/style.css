@@ -112,6 +112,7 @@ header p {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 20px 0;
 }
 
 
@@ -164,11 +165,11 @@ header p {
 .tonearm-image {
   position: absolute;
 
-  height: 85%;
+  height: 70%;
   width: auto;
 
-  right: 5%;
-  top: 5%;
+  right: 20%;
+  top: 8%;
 
   object-fit: contain;
   z-index: 2;
