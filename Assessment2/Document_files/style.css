@@ -1,9 +1,9 @@
 :root {
-  --primary-bg-color: #f4f4f4;
-  --text-color: #333;
-  --main-bg-color: #333;
-  --main-text-color: #fff;
-  --main-btn-bg-color: #938989;
+  --primary-bg-color: #70452f;
+  --text-color: #f5e6d3;
+  --main-bg-color: #292626;
+  --main-text-color: #f5e6d3;
+  --main-btn-bg-color: #8b6046;
 }
 
 body,
@@ -14,15 +14,26 @@ ul {
   padding: 0;
 }
 
+/* BODY AND WOODEN BACKGROUND */
+
 body {
-  font-family: "Arial", sans-serif;
-  background-color: var(--primary-bg-color);
-  color: var(--text-color);
+  font-family: "Special Elite", monospace;
+
+  background-color: #795039;
+  background-image: url("./wood-bg.jpeg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+
+  color: #30251e;
   line-height: 1.6;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+
+  min-height: 100vh;
 }
 
 /* Add additional styles as needed */
@@ -35,12 +46,57 @@ body {
 }
 
 /* Header styling */
+/* PAPER HEADER */
+
 header {
-  background-color: var(--main-bg-color);
-  color: var(--main-text-color);
-  padding: 10px 0;
+  /* A warm cream colour gives the header the appearance
+     of aged paper rather than a modern website banner. */
+
+  background-color: #f3e7cf;
+
+  color: #35271f;
+
+  width: 85%;
+  max-width: 850px;
+
+  margin-top: 35px;
+  padding: 25px 20px;
+
   text-align: center;
-  width: 100%;
+
+  box-sizing: border-box;
+
+  /* Slightly irregular edges and shadows help the paper
+     feel like a physical object sitting on the wood. */
+
+  border: 1px solid #d4c3a6;
+
+  box-shadow:
+    2px 4px 8px rgba(0, 0, 0, 0.3),
+    inset 0 0 12px rgba(120, 90, 50, 0.08);
+
+  transform: rotate(-0.5deg);
+}
+
+/* ASSIGNMENT TITLE */
+
+header h1 {
+  font-size: 27px;
+
+  letter-spacing: 1px;
+  line-height: 1.4;
+
+  margin: 0;
+}
+
+/* STUDENT NAME */
+
+header p {
+  font-size: 20px;
+
+  margin-top: 10px;
+
+  color: #72533d;
 }
 
 /* Navigation styling */
