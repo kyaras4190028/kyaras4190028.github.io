@@ -103,8 +103,9 @@ header p {
 
 
 /* Footer styling */
+
 footer {
-  background: none;
+  background: transparent;
   color: #f5e6d3;
   text-align: center;
   padding: 10px;
@@ -112,9 +113,11 @@ footer {
   border: none;
   box-shadow: none;
   font-size: 14px;
+  box-sizing: border-box;
 }
 
-footer a {
+footer a,
+footer a:visited {
   color: #f5e6d3;
   text-decoration: none;
   border: none;
