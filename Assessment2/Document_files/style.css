@@ -102,14 +102,16 @@ header p {
 /* =========================================
    VINYL PLAYER LAYOUT
 ========================================= */
+.vinyl-section {
+  width: 100%;
+  padding: 30px 0;
+}
 
 .vinyl-player {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-
   width: 100%;
-  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
@@ -121,11 +123,10 @@ header p {
   position: relative;
 
   width: 100%;
-  max-width: 1200px;
-
+  max-width: 1100px;
   aspect-ratio: 1.85 / 1;
 
-  background-color: var(--turntable-colour);
+  background-color: #d5d5d5;
   border: none;
   border-radius: 28px;
 
@@ -135,6 +136,7 @@ header p {
 }
 
 
+
 /* =========================================
    VINYL IMAGE
 ========================================= */
@@ -142,17 +144,15 @@ header p {
 .vinyl-image {
   position: absolute;
 
-  width: 48%;
-  height: auto;
+  height: 88%;
+  width: auto;
 
-  left: 34%;
+  left: 35%;
   top: 50%;
 
   transform: translate(-50%, -50%);
 
   object-fit: contain;
-  display: block;
-
   z-index: 1;
 }
 
@@ -164,16 +164,14 @@ header p {
 .tonearm-image {
   position: absolute;
 
-  width: 42%;
-  height: auto;
+  height: 85%;
+  width: auto;
 
-  top: 8%;
   right: 5%;
-
-  z-index: 2;
+  top: 5%;
 
   object-fit: contain;
-  display: block;
+  z-index: 2;
 
   pointer-events: none;
 }
@@ -237,15 +235,19 @@ footer a:hover {
     border-radius: 18px;
   }
 
+  .vinyl-section {
+    padding: 20px 0;
+  }
+
   .vinyl-image {
     width: 75%;
-    left: 39%;
+    left: 35%;
   }
 
   .tonearm-image {
-    width: 40%;
-    top: 5%;
+   height: 75%;
     right: 3%;
+    top: 10%;
   }
 
   footer {
