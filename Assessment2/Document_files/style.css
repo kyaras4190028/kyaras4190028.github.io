@@ -93,7 +93,7 @@ header p {
   width: 100%;
   max-width: 1400px;
 
-  padding: 30px 20px;
+  padding: 8px 20px;
 
   flex: 1;
 }
@@ -104,7 +104,7 @@ header p {
 ========================================= */
 .vinyl-section {
   width: 100%;
-  padding: 30px 0;
+  padding: 0;
 }
 
 .vinyl-player {
@@ -112,7 +112,7 @@ header p {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px 0;
+  padding: 0;
 }
 
 
@@ -147,8 +147,8 @@ header p {
 .vinyl-setup-image {
   display: block;
 
-  width: 60%;
-  height: auto;
+  width: 85%;
+  max-height: 90%;
 
   object-fit: contain;
 
