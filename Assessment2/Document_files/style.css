@@ -156,8 +156,8 @@ header p {
 .vinyl-setup-image {
   display: block;
 
-  width: 94%;
-  max-height: 94%;
+  width: 100%;
+  max-height: 95%;
 
   height: auto;
   object-fit: contain;
@@ -514,7 +514,7 @@ footer p {
   }
 
   .vinyl-setup-image {
-    width: 85%;
+    width: 90%;
     max-height: 95%;
   }
 
