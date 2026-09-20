@@ -19,10 +19,8 @@
   box-sizing: border-box;
 }
 
-body,
-h1,
-h2,
-p {
+html,
+body {
   margin: 0;
   padding: 0;
 }
@@ -37,8 +35,11 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
 
-  color: var(--paper-text);
+  color: #30251e;
+  line-height: 1.4;
+
   min-height: 100vh;
+  min-height: 100svh;
 
   display: flex;
   flex-direction: column;
@@ -57,9 +58,8 @@ header {
   width: 95%;
   max-width: 1200px;
 
-  margin-top: 12px;
-  margin-bottom: 20px;
-  padding: 25px 20px;
+  margin: 10px auto 12px;
+  padding: 18px 20px;
 
   text-align: center;
 
@@ -69,18 +69,22 @@ header {
     2px 4px 8px rgba(0, 0, 0, 0.3),
     inset 0 0 12px rgba(120, 90, 50, 0.08);
 
-  transform: rotate(-0.5deg);
+  transform: rotate(-0.3deg);
+
+  position: relative;
+  z-index: 2;
 }
 
 header h1 {
-  font-size: 27px;
+  font-size: clamp(18px, 2.2vw, 27px);
   letter-spacing: 1px;
   line-height: 1.4;
+  margin: 0;
 }
 
 header p {
-  font-size: 20px;
-  margin-top: 10px;
+  font-size: clamp(14px, 1.5vw, 20px);
+  margin: 8px 0 0;
   color: #72533d;
 }
 
@@ -92,14 +96,21 @@ header p {
 .container {
   width: 100%;
   max-width: 1450px;
-  padding: 0 25px 20px;
-  margin: 0 auto;
+
+  padding: 0 25px;
+
+  margin: 0 auto 12px;
+
   flex: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 
 /* =========================================
-   TURNTABLE LAYOUT
+   TURNTABLE
 ========================================= */
 
 .turntable {
@@ -108,72 +119,132 @@ header p {
   width: 100%;
   max-width: 1250px;
 
-  height: clamp(360px, calc(100vh - 250px), 560px);
-  min-height: 0;
-
-  margin: 0 auto;
-
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  align-items: center;
-  gap: 20px;
-
-  padding: 25px;
+  /* Keeps the player within the available screen height */
+  height: clamp(420px, calc(100svh - 220px), 620px);
 
   background-color: var(--turntable-colour);
+
   border-radius: 28px;
 
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+
+  overflow: hidden;
+
+  display: grid;
+  grid-template-columns: 55% 45%;
+  align-items: center;
 }
 
 
 /* =========================================
-   VINYL IMAGE AND MUSIC NOTES
+   VINYL IMAGE AREA
 ========================================= */
 
 .vinyl-area {
   position: relative;
+
   width: 100%;
+  height: 100%;
+
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
 }
 
 .vinyl-setup-image {
   display: block;
 
-  width: 100%;
-  max-width: 500px;
-  max-height: 90%;
-  height: auto;
+  width: 94%;
+  max-height: 94%;
 
+  height: auto;
   object-fit: contain;
+
+  position: relative;
+  z-index: 1;
 }
 
 
 /* =========================================
-   ANIMATED MUSIC NOTES
+   MUSIC NOTES ANIMATION
 ========================================= */
 
 .music-notes {
   position: absolute;
-  inset: 0;
-  overflow: hidden;
+
+  left: 48%;
+  top: 28%;
+
+  width: 140px;
+  height: 150px;
+
   pointer-events: none;
+
+  opacity: 0;
+  z-index: 3;
 }
 
-.music-note {
+.music-notes span {
   position: absolute;
-  bottom: 15%;
-  left: var(--note-left);
 
-  font-family: Arial, sans-serif;
-  font-size: var(--note-size);
+  font-family: serif;
+  font-size: 30px;
+  font-weight: bold;
 
-  color: #4d4034;
+  color: #72533d;
+
   opacity: 0;
+}
 
-  animation: float-note 2.8s ease-out forwards;
+.music-notes span:nth-child(1) {
+  left: 10%;
+  bottom: 0;
+}
+
+.music-notes span:nth-child(2) {
+  left: 35%;
+  bottom: 5%;
+}
+
+.music-notes span:nth-child(3) {
+  left: 55%;
+  bottom: 0;
+}
+
+.music-notes span:nth-child(4) {
+  left: 75%;
+  bottom: 5%;
+}
+
+.music-notes span:nth-child(5) {
+  left: 90%;
+  bottom: 0;
+}
+
+.music-notes.playing {
+  opacity: 1;
+}
+
+.music-notes.playing span {
+  animation: float-note 2.5s ease-out infinite;
+}
+
+.music-notes.playing span:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.music-notes.playing span:nth-child(3) {
+  animation-delay: 1s;
+}
+
+.music-notes.playing span:nth-child(4) {
+  animation-delay: 1.5s;
+}
+
+.music-notes.playing span:nth-child(5) {
+  animation-delay: 2s;
 }
 
 @keyframes float-note {
@@ -182,12 +253,12 @@ header p {
     opacity: 0;
   }
 
-  15% {
+  20% {
     opacity: 1;
   }
 
   100% {
-    transform: translateY(-180px) rotate(25deg);
+    transform: translateY(-100px) rotate(20deg);
     opacity: 0;
   }
 }
@@ -199,34 +270,35 @@ header p {
 
 .player-panel {
   width: 100%;
-  max-width: 500px;
+  height: 100%;
 
-  justify-self: center;
+  padding: 30px 8% 20px 4%;
 
-  padding: 15px;
-  color: #827f70;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 
 /* =========================================
-   TRACK INFORMATION
+   SONG INFORMATION
 ========================================= */
 
-.track-information h2 {
-  font-size: 38px;
-  font-weight: normal;
-  letter-spacing: 2px;
-  line-height: 1.3;
-
-  overflow-wrap: anywhere;
+.song-information {
+  color: #858575;
+  margin-bottom: 22px;
 }
 
-.track-information p {
-  margin-top: 15px;
+.song-information h2 {
+  font-size: clamp(25px, 3vw, 38px);
+  line-height: 1.3;
+  margin: 0 0 8px;
+}
 
-  font-size: 19px;
-  font-weight: bold;
-  letter-spacing: 3px;
+.song-information p {
+  font-size: clamp(14px, 1.5vw, 19px);
+  letter-spacing: 1px;
+  margin: 0;
 }
 
 
@@ -234,12 +306,16 @@ header p {
    TIMER
 ========================================= */
 
-.timer {
-  margin-top: 25px;
-  margin-bottom: 25px;
+.time-display {
+  color: #858575;
+  font-size: clamp(18px, 2vw, 25px);
+  letter-spacing: 2px;
 
-  font-size: 25px;
-  letter-spacing: 3px;
+  margin-bottom: 22px;
+}
+
+.time-divider {
+  margin: 0 4px;
 }
 
 
@@ -249,116 +325,130 @@ header p {
 
 .progress-container {
   width: 100%;
-  height: 5px;
+  height: 8px;
 
-  margin-bottom: 35px;
+  background-color: transparent;
 
-  background-image: repeating-linear-gradient(
-    to right,
-    #bcb9a9 0,
-    #bcb9a9 4px,
-    transparent 4px,
-    transparent 10px
-  );
+  border: none;
+  border-top: 5px dotted #c3c0b2;
+
+  margin-bottom: 32px;
+
+  cursor: pointer;
+  position: relative;
 }
 
-.progress-bar {
+.progress-fill {
+  position: absolute;
+
+  left: 0;
+  top: -5px;
+
   width: 0%;
-  height: 100%;
-  background-color: #777466;
+  height: 5px;
+
+  background-color: #858575;
 }
 
 
 /* =========================================
-   PLAYER BUTTONS
+   PLAYER CONTROLS
 ========================================= */
 
 .controls {
+  width: 100%;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 8px;
+
+  gap: 10px;
 }
 
-.control-button {
-  width: 55px;
-  height: 55px;
-  flex-shrink: 1;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* Remove button backgrounds and borders */
 
-  background-color: transparent;
+.control-button,
+.volume-button {
+  background: transparent;
   border: none;
+  box-shadow: none;
   border-radius: 0;
 
-  box-shadow: none;
+  padding: 5px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   cursor: pointer;
 
-  transition:
-    transform 0.2s ease,
+  transition: transform 0.15s ease;
+}
+
+.control-button {
+  width: 48px;
+  height: 48px;
 }
 
 .control-button img {
+  display: block;
+
   width: 32px;
   height: 32px;
+
   object-fit: contain;
 }
 
-.control-button:hover {
-  background: transparent;
-  transform: scale(1.15);
+.control-button:hover,
+.volume-button:hover {
+  transform: scale(1.12);
 }
 
-.control-button:active {
-  transform: scale(0.95);
+.control-button:active,
+.volume-button:active {
+  transform: scale(0.92);
+}
+
+/* Visual indication when shuffle is enabled */
+
+.control-button.active {
+  outline: 2px solid #858575;
+  outline-offset: 4px;
 }
 
 
 /* =========================================
-   VOLUME CONTROL
+   VOLUME BUTTON
 ========================================= */
 
 .volume-area {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
+
   gap: 12px;
 
-  margin-top: 25px;
+  margin-top: 20px;
+
+  color: #858575;
+  font-size: 15px;
 }
 
 .volume-button {
-  width: 48px;
-  height: 48px;
+  width: 38px;
+  height: 38px;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  background-color: #d3d0c5;
-  border: none;
-  border-radius: 50%;
-
-  cursor: pointer;
-
-  transition: transform 0.2s ease;
+  padding: 0;
 }
 
 .volume-button img {
-  width: 25px;
-  height: 25px;
+  display: block;
+
+  width: 28px;
+  height: 28px;
+
   object-fit: contain;
-}
-
-.volume-button:hover {
-  transform: scale(1.08);
-}
-
-#volume-label {
-  font-size: 15px;
-  letter-spacing: 1px;
 }
 
 
@@ -368,21 +458,18 @@ header p {
 
 footer {
   width: 100%;
-  padding: 12px;
+
+  margin-top: 0;
+  padding: 0 10px 12px;
 
   text-align: center;
-  font-size: 14px;
+
   color: var(--beige-text);
+  font-size: 13px;
 }
 
-footer a,
-footer a:visited {
-  color: var(--beige-text);
-  text-decoration: none;
-}
-
-footer a:hover {
-  text-decoration: underline;
+footer p {
+  margin: 0;
 }
 
 
@@ -390,49 +477,13 @@ footer a:hover {
    RESPONSIVE DESIGN
 ========================================= */
 
-@media (max-width: 900px) {
-
-  .turntable {
-    grid-template-columns: 1fr;
-    gap: 10px;
-    padding: 25px;
-  }
-
-  .vinyl-setup-image {
-    width: 75%;
-    max-width: 500px;
-  }
-
-  .player-panel {
-    max-width: 550px;
-    padding: 20px 10px;
-  }
-
-  .track-information h2 {
-    font-size: 32px;
-  }
-
-  .timer {
-    margin-top: 25px;
-    margin-bottom: 25px;
-  }
-
-  .progress-container {
-    margin-bottom: 35px;
-  }
-
-  .control-button {
-    width: 65px;
-    height: 65px;
-  }
-}
-
-
-@media (max-width: 500px) {
+@media (max-width: 700px) {
 
   header {
     width: 94%;
-    padding: 18px 12px;
+    margin-top: 8px;
+    margin-bottom: 10px;
+    padding: 15px 12px;
   }
 
   header h1 {
@@ -440,45 +491,125 @@ footer a:hover {
   }
 
   header p {
-    font-size: 16px;
-  }
-
-  .container {
-    padding: 0 10px 20px;
-  }
-
-  .turntable {
-    padding: 18px;
-    border-radius: 18px;
-  }
-
-  .vinyl-setup-image {
-    width: 95%;
-  }
-
-  .track-information h2 {
-    font-size: 27px;
-  }
-
-  .track-information p {
     font-size: 15px;
   }
 
+  .container {
+    padding: 0 10px;
+    margin-bottom: 10px;
+  }
+
+  .turntable {
+    height: auto;
+    min-height: 600px;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: 48% 52%;
+
+    border-radius: 20px;
+  }
+
+  .vinyl-area {
+    min-height: 280px;
+  }
+
+  .vinyl-setup-image {
+    width: 85%;
+    max-height: 95%;
+  }
+
+  .player-panel {
+    padding: 10px 8% 20px;
+    justify-content: flex-start;
+  }
+
+  .song-information {
+    margin-bottom: 12px;
+  }
+
+  .song-information h2 {
+    font-size: 27px;
+  }
+
+  .time-display {
+    margin-bottom: 15px;
+  }
+
+  .progress-container {
+    margin-bottom: 20px;
+  }
+
   .controls {
-    gap: 7px;
+    gap: 5px;
   }
 
   .control-button {
-    width: 52px;
-    height: 52px;
+    width: 40px;
+    height: 40px;
   }
 
   .control-button img {
-    width: 22px;
-    height: 22px;
+    width: 27px;
+    height: 27px;
   }
 
   .volume-area {
-    margin-top: 30px;
+    margin-top: 12px;
+  }
+
+  .music-notes {
+    left: 60%;
+    top: 20%;
+  }
+
+  footer {
+    font-size: 11px;
+    padding-bottom: 8px;
+  }
+}
+
+
+/* Short screens: reduce the player height to avoid unnecessary scrolling */
+
+@media (min-width: 701px) and (max-height: 750px) {
+
+  header {
+    padding: 12px 20px;
+    margin-top: 6px;
+    margin-bottom: 8px;
+  }
+
+  .container {
+    margin-bottom: 8px;
+  }
+
+  .turntable {
+    height: calc(100svh - 175px);
+    min-height: 360px;
+  }
+
+  .player-panel {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  .song-information {
+    margin-bottom: 12px;
+  }
+
+  .time-display {
+    margin-bottom: 14px;
+  }
+
+  .progress-container {
+    margin-bottom: 22px;
+  }
+
+  .volume-area {
+    margin-top: 12px;
+  }
+
+  footer {
+    padding-bottom: 6px;
   }
 }

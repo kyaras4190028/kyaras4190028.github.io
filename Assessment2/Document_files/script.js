@@ -1,233 +1,223 @@
-// =========================================
-// GET THE HTML ELEMENTS
-// =========================================
+/* =========================================
+   GET HTML ELEMENTS
+========================================= */
 
-const audio = document.querySelector("#album-audio");
+const song = document.querySelector("#song");
 
 const playPauseButton = document.querySelector("#play-pause-button");
 const playPauseIcon = document.querySelector("#play-pause-icon");
 
 const replayButton = document.querySelector("#replay-button");
-const previousButton = document.querySelector("#previous-button");
-const nextButton = document.querySelector("#next-button");
+const startButton = document.querySelector("#start-button");
+const endButton = document.querySelector("#end-button");
 const shuffleButton = document.querySelector("#shuffle-button");
 
 const volumeButton = document.querySelector("#volume-button");
 const volumeIcon = document.querySelector("#volume-icon");
-const volumeLabel = document.querySelector("#volume-label");
+const volumeStatus = document.querySelector("#volume-status");
 
-const timer = document.querySelector("#timer");
-const progressBar = document.querySelector("#progress-bar");
+const currentTimeDisplay = document.querySelector("#current-time");
+const durationDisplay = document.querySelector("#duration");
+
+const progressContainer = document.querySelector("#progress-container");
+const progressFill = document.querySelector("#progress-fill");
 
 const musicNotes = document.querySelector("#music-notes");
 
 
-// =========================================
-// PLAY / PAUSE BUTTON
-// The same button switches between playing
-// and pausing the music.
-// =========================================
+/* =========================================
+   FORMAT TIME
+========================================= */
 
-playPauseButton.addEventListener("click", function () {
-
-  if (audio.paused) {
-    audio.play();
-
-    playPauseIcon.src = "./Document_files/pause.png";
-    playPauseButton.setAttribute("aria-label", "Pause music");
-
-  } else {
-    audio.pause();
-
-    playPauseIcon.src = "./Document_files/play.png";
-    playPauseButton.setAttribute("aria-label", "Play music");
-  }
-
-});
-
-
-// =========================================
-// UPDATE BUTTON WHEN AUDIO ENDS
-// =========================================
-
-audio.addEventListener("ended", function () {
-
-  playPauseIcon.src = "./Document_files/play.png";
-  playPauseButton.setAttribute("aria-label", "Play music");
-
-});
-
-
-// =========================================
-// RESTART TRACK
-// =========================================
-
-function restartTrack() {
-  audio.currentTime = 0;
-}
-
-replayButton.addEventListener("click", restartTrack);
-previousButton.addEventListener("click", restartTrack);
-
-
-// =========================================
-// NEXT BUTTON
-// With one song loaded, this skips to the end.
-// =========================================
-
-nextButton.addEventListener("click", function () {
-  audio.currentTime = audio.duration || 0;
-});
-
-
-// =========================================
-// SHUFFLE BUTTON
-// With one song loaded, shuffle jumps to
-// a random point in the current track.
-// =========================================
-
-shuffleButton.addEventListener("click", function () {
-
-  if (Number.isFinite(audio.duration) && audio.duration > 0) {
-    audio.currentTime = Math.random() * audio.duration;
-  }
-
-});
-
-
-// =========================================
-// MUTE / UNMUTE BUTTON
-// The same button switches audio on and off.
-// =========================================
-
-volumeButton.addEventListener("click", function () {
-
-  audio.muted = !audio.muted;
-
-  if (audio.muted) {
-    volumeIcon.src = "./Document_files/noaudio.png";
-    volumeButton.setAttribute("aria-label", "Unmute audio");
-    volumeLabel.textContent = "Sound off";
-
-  } else {
-    volumeIcon.src = "./Document_files/audio.png";
-    volumeButton.setAttribute("aria-label", "Mute audio");
-    volumeLabel.textContent = "Sound on";
-  }
-
-});
-
-
-// =========================================
-// UPDATE TIMER AND PROGRESS BAR
-// =========================================
-
-function formatTime(seconds) {
-
-  if (!Number.isFinite(seconds)) {
+function formatTime(time) {
+  if (!Number.isFinite(time)) {
     return "00:00";
   }
 
-  const minutes = Math.floor(seconds / 60);
-  const remainingSeconds = Math.floor(seconds % 60);
+  const minutes = Math.floor(time / 60);
+  const seconds = Math.floor(time % 60);
 
-  return (
-    String(minutes).padStart(2, "0") +
-    ":" +
-    String(remainingSeconds).padStart(2, "0")
+  return String(minutes).padStart(2, "0") + ":" +
+         String(seconds).padStart(2, "0");
+}
+
+
+/* =========================================
+   PLAY / PAUSE TOGGLE
+========================================= */
+
+function updatePlayPauseButton() {
+  if (song.paused) {
+    playPauseIcon.src = "./Document_files/play.png";
+    playPauseButton.setAttribute("aria-label", "Play");
+    musicNotes.classList.remove("playing");
+  } else {
+    playPauseIcon.src = "./Document_files/pause.png";
+    playPauseButton.setAttribute("aria-label", "Pause");
+    musicNotes.classList.add("playing");
+  }
+}
+
+playPauseButton.addEventListener("click", function () {
+  if (song.paused) {
+    song.play().catch(function (error) {
+      console.log("The audio could not be played:", error);
+    });
+  } else {
+    song.pause();
+  }
+});
+
+
+/* =========================================
+   REPLAY
+========================================= */
+
+replayButton.addEventListener("click", function () {
+  song.currentTime = 0;
+
+  song.play().catch(function (error) {
+    console.log("The audio could not be played:", error);
+  });
+});
+
+
+/* =========================================
+   SKIP TO START
+========================================= */
+
+startButton.addEventListener("click", function () {
+  song.currentTime = 0;
+});
+
+
+/* =========================================
+   SKIP TO END
+========================================= */
+
+endButton.addEventListener("click", function () {
+  if (Number.isFinite(song.duration)) {
+    song.currentTime = song.duration;
+  }
+});
+
+
+/* =========================================
+   SHUFFLE TOGGLE
+========================================= */
+
+let shuffleEnabled = false;
+
+shuffleButton.addEventListener("click", function () {
+  shuffleEnabled = !shuffleEnabled;
+
+  shuffleButton.classList.toggle("active", shuffleEnabled);
+
+  shuffleButton.setAttribute(
+    "aria-label",
+    shuffleEnabled ? "Shuffle on" : "Shuffle off"
   );
 
+  shuffleButton.setAttribute("aria-pressed", String(shuffleEnabled));
+});
+
+
+/* =========================================
+   MUTE / UNMUTE TOGGLE
+========================================= */
+
+volumeButton.addEventListener("click", function () {
+  song.muted = !song.muted;
+
+  if (song.muted) {
+    volumeIcon.src = "./Document_files/noaudio.png";
+    volumeButton.setAttribute("aria-label", "Turn sound on");
+    volumeButton.setAttribute("aria-pressed", "true");
+    volumeStatus.textContent = "Sound off";
+  } else {
+    volumeIcon.src = "./Document_files/audio.png";
+    volumeButton.setAttribute("aria-label", "Mute audio");
+    volumeButton.setAttribute("aria-pressed", "false");
+    volumeStatus.textContent = "Sound on";
+  }
+});
+
+
+/* =========================================
+   UPDATE TIMER AND PROGRESS BAR
+========================================= */
+
+function updateProgress() {
+  currentTimeDisplay.textContent = formatTime(song.currentTime);
+
+  if (Number.isFinite(song.duration)) {
+    durationDisplay.textContent = formatTime(song.duration);
+
+    const progress = (song.currentTime / song.duration) * 100;
+
+    progressFill.style.width = progress + "%";
+
+    progressContainer.setAttribute(
+      "aria-valuenow",
+      String(Math.round(progress))
+    );
+  }
 }
 
+song.addEventListener("timeupdate", updateProgress);
 
-audio.addEventListener("timeupdate", function () {
+song.addEventListener("loadedmetadata", function () {
+  durationDisplay.textContent = formatTime(song.duration);
+});
 
-  timer.textContent = formatTime(audio.currentTime);
+song.addEventListener("play", updatePlayPauseButton);
+song.addEventListener("pause", updatePlayPauseButton);
 
-  if (Number.isFinite(audio.duration) && audio.duration > 0) {
+song.addEventListener("ended", function () {
+  updatePlayPauseButton();
+  progressFill.style.width = "0%";
+});
 
-    const progress = (audio.currentTime / audio.duration) * 100;
 
-    progressBar.style.width = progress + "%";
+/* =========================================
+   CLICKABLE PROGRESS BAR
+========================================= */
 
+progressContainer.addEventListener("click", function (event) {
+  if (!Number.isFinite(song.duration)) {
+    return;
   }
 
+  const barWidth = progressContainer.clientWidth;
+  const clickPosition = event.offsetX;
+  const percentage = clickPosition / barWidth;
+
+  song.currentTime = percentage * song.duration;
 });
 
 
-// =========================================
-// SHOW TOTAL TRACK LENGTH WHEN LOADED
-// =========================================
+/* =========================================
+   KEYBOARD ACCESS FOR PROGRESS BAR
+========================================= */
 
-audio.addEventListener("loadedmetadata", function () {
-
-  timer.textContent = formatTime(audio.currentTime);
-
-});
-
-
-// =========================================
-// ANIMATED MUSIC NOTES
-// Notes appear while the song is playing.
-// =========================================
-
-let noteInterval = null;
-
-const noteCharacters = ["♪", "♫", "♬", "♩"];
-
-
-function createMusicNote() {
-
-  const note = document.createElement("span");
-
-  note.classList.add("music-note");
-
-  note.textContent =
-    noteCharacters[Math.floor(Math.random() * noteCharacters.length)];
-
-  // Give each note a random position and size.
-  note.style.setProperty("--note-left", Math.random() * 85 + "%");
-  note.style.setProperty("--note-size", 20 + Math.random() * 22 + "px");
-
-  musicNotes.appendChild(note);
-
-  // Remove the note after its animation finishes.
-  note.addEventListener("animationend", function () {
-    note.remove();
-  });
-
-}
-
-
-// Start making notes when the music plays.
-audio.addEventListener("play", function () {
-
-  if (noteInterval === null) {
-
-    createMusicNote();
-
-    noteInterval = setInterval(createMusicNote, 500);
-
+progressContainer.addEventListener("keydown", function (event) {
+  if (!Number.isFinite(song.duration)) {
+    return;
   }
 
+  if (event.key === "ArrowRight") {
+    song.currentTime = Math.min(song.currentTime + 5, song.duration);
+  }
+
+  if (event.key === "ArrowLeft") {
+    song.currentTime = Math.max(song.currentTime - 5, 0);
+  }
 });
 
 
-// Stop making new notes when the music pauses.
-audio.addEventListener("pause", function () {
+/* =========================================
+   INITIAL PLAYER STATE
+========================================= */
 
-  clearInterval(noteInterval);
-  noteInterval = null;
-
-});
-
-
-// Clear notes and stop the animation when the song ends.
-audio.addEventListener("ended", function () {
-
-  clearInterval(noteInterval);
-  noteInterval = null;
-
-  musicNotes.innerHTML = "";
-
-});
+updatePlayPauseButton();
+updateProgress();
