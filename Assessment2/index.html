@@ -12,9 +12,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
 
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="./Document_files/reset.css">
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="./Document_files/style.css">
+
+  <!-- JavaScript -->
+  <script src="./Document_files/script.js" defer></script>
 </head>
 
 <body>
@@ -25,42 +27,98 @@
     <p>Kyara Herman - s4190028</p>
   </header>
 
-
-  <!-- MAIN CONTENT -->
+  <!-- MAIN PLAYER -->
   <main class="container">
 
-    <!-- VINYL PLAYER SECTION -->
-    <section class="vinyl-section">
+    <section class="turntable">
 
-      <div class="turntable">
+      <!-- VINYL IMAGE -->
+      <div class="vinyl-area">
 
-        <!-- Combined vinyl record and tonearm image -->
         <img
           src="./Document_files/vinyl&tonearm.png"
           alt="Vinyl record and tonearm"
           class="vinyl-setup-image"
         >
 
-        <!-- Decorative remote control -->
-        <div class="remote" aria-label="Decorative remote control">
+        <!-- Animated music notes appear while the music plays -->
+        <div class="music-notes" id="music-notes" aria-hidden="true"></div>
+
+      </div>
+
+      <!-- PLAYER CONTROLS AND TRACK INFORMATION -->
+      <div class="player-panel">
+
+        <!-- TRACK INFORMATION -->
+        <div class="track-information">
+          <h2 id="track-title">Track Name</h2>
+          <p id="artist-name">ARTIST NAME</p>
+        </div>
+
+        <!-- TIMER -->
+        <div class="timer" id="timer">00:00</div>
+
+        <!-- PROGRESS BAR -->
+        <div class="progress-container">
+          <div class="progress-bar" id="progress-bar"></div>
+        </div>
+
+        <!-- PLAYER BUTTONS -->
+        <div class="controls">
+
+          <!-- RESTART -->
+          <button class="control-button" id="replay-button" aria-label="Restart track">
+            <img src="./Document_files/replay.png" alt="">
+          </button>
+
+          <!-- PREVIOUS / BACK TO START -->
+          <button class="control-button" id="previous-button" aria-label="Go to beginning">
+            <img src="./Document_files/start.png" alt="">
+          </button>
+
+          <!-- ONE PLAY / PAUSE BUTTON -->
+          <button class="control-button" id="play-pause-button" aria-label="Play music">
+            <img id="play-pause-icon" src="./Document_files/play.png" alt="">
+          </button>
+
+          <!-- NEXT / END -->
+          <button class="control-button" id="next-button" aria-label="Skip to end">
+            <img src="./Document_files/end.png" alt="">
+          </button>
+
+          <!-- SHUFFLE -->
+          <button class="control-button" id="shuffle-button" aria-label="Shuffle">
+            <img src="./Document_files/shuffle.png" alt="">
+          </button>
+
+        </div>
+
+        <!-- VOLUME BUTTON AT THE BOTTOM LEFT -->
+        <div class="volume-area">
+          <button class="volume-button" id="volume-button" aria-label="Mute audio">
+            <img id="volume-icon" src="./Document_files/audio.png" alt="">
+          </button>
+          <span id="volume-label">Sound on</span>
         </div>
 
       </div>
 
     </section>
 
+    <!-- AUDIO FILE -->
+    <audio id="album-audio" preload="metadata">
+      <source src="./Document_files/song.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+
   </main>
 
-
-  <!-- FOOTER / ICON CREDITS -->
+  <!-- FOOTER -->
   <footer>
-    <a href="https://icons8.com/icon/59862/play">Play</a> icon by
-    <a href="https://icons8.com/">Icons8</a>
-
-    <span> | </span>
-
-    <a href="https://icons8.com/icon/61012/pause">Pause</a> icon by
-    <a href="https://icons8.com/">Icons8</a>
+    <p>
+      Play and Pause icons by
+      <a href="https://icons8.com/">Icons8</a>
+    </p>
   </footer>
 
 </body>
