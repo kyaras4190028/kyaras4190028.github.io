@@ -1,33 +1,19 @@
-/* =========================================
-   GET HTML ELEMENTS
-========================================= */
-
 const song = document.querySelector("#song");
-
 const playPauseButton = document.querySelector("#play-pause-button");
 const playPauseIcon = document.querySelector("#play-pause-icon");
-
 const replayButton = document.querySelector("#replay-button");
 const startButton = document.querySelector("#start-button");
 const endButton = document.querySelector("#end-button");
 const shuffleButton = document.querySelector("#shuffle-button");
-
 const volumeButton = document.querySelector("#volume-button");
 const volumeIcon = document.querySelector("#volume-icon");
 const volumeStatus = document.querySelector("#volume-status");
-
 const currentTimeDisplay = document.querySelector("#current-time");
 const durationDisplay = document.querySelector("#duration");
-
 const progressContainer = document.querySelector("#progress-container");
 const progressFill = document.querySelector("#progress-fill");
-
 const musicNotes = document.querySelector("#music-notes");
 
-
-/* =========================================
-   FORMAT TIME
-========================================= */
 
 function formatTime(time) {
   if (!Number.isFinite(time)) {
@@ -40,11 +26,6 @@ function formatTime(time) {
   return String(minutes).padStart(2, "0") + ":" +
          String(seconds).padStart(2, "0");
 }
-
-
-/* =========================================
-   PLAY / PAUSE TOGGLE
-========================================= */
 
 function updatePlayPauseButton() {
   if (song.paused) {
@@ -68,11 +49,6 @@ playPauseButton.addEventListener("click", function () {
   }
 });
 
-
-/* =========================================
-   REPLAY
-========================================= */
-
 replayButton.addEventListener("click", function () {
   song.currentTime = 0;
 
@@ -81,30 +57,15 @@ replayButton.addEventListener("click", function () {
   });
 });
 
-
-/* =========================================
-   SKIP TO START
-========================================= */
-
 startButton.addEventListener("click", function () {
   song.currentTime = 0;
 });
-
-
-/* =========================================
-   SKIP TO END
-========================================= */
 
 endButton.addEventListener("click", function () {
   if (Number.isFinite(song.duration)) {
     song.currentTime = song.duration;
   }
 });
-
-
-/* =========================================
-   SHUFFLE TOGGLE
-========================================= */
 
 let shuffleEnabled = false;
 
@@ -121,11 +82,6 @@ shuffleButton.addEventListener("click", function () {
   shuffleButton.setAttribute("aria-pressed", String(shuffleEnabled));
 });
 
-
-/* =========================================
-   MUTE / UNMUTE TOGGLE
-========================================= */
-
 volumeButton.addEventListener("click", function () {
   song.muted = !song.muted;
 
@@ -141,11 +97,6 @@ volumeButton.addEventListener("click", function () {
     volumeStatus.textContent = "Sound on";
   }
 });
-
-
-/* =========================================
-   UPDATE TIMER AND PROGRESS BAR
-========================================= */
 
 function updateProgress() {
   currentTimeDisplay.textContent = formatTime(song.currentTime);
@@ -178,11 +129,6 @@ song.addEventListener("ended", function () {
   progressFill.style.width = "0%";
 });
 
-
-/* =========================================
-   CLICKABLE PROGRESS BAR
-========================================= */
-
 progressContainer.addEventListener("click", function (event) {
   if (!Number.isFinite(song.duration)) {
     return;
@@ -194,11 +140,6 @@ progressContainer.addEventListener("click", function (event) {
 
   song.currentTime = percentage * song.duration;
 });
-
-
-/* =========================================
-   KEYBOARD ACCESS FOR PROGRESS BAR
-========================================= */
 
 progressContainer.addEventListener("keydown", function (event) {
   if (!Number.isFinite(song.duration)) {
@@ -214,10 +155,7 @@ progressContainer.addEventListener("keydown", function (event) {
   }
 });
 
-
-/* =========================================
-   INITIAL PLAYER STATE
-========================================= */
-
 updatePlayPauseButton();
 updateProgress();
+
+//Javascript was very challenging for me. It took me a long time to really figure out how to use it and I had to watch tutorials on YouTube and ask ChatGPT to teach and help me as I was having a lot of trouble with it. Even though I'm still not really confident in using Javascript compared to HTML and CSS, I feel like I now have a better understanding of how to use Javascript and how to make it work.//

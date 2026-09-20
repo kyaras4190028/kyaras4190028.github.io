@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Title -->
   <title>Music Album Player</title>
 
   <!-- Vintage typewriter font -->
@@ -22,14 +22,14 @@
 
 <body>
 
-  <!-- PAPER HEADER -->
+  <!-- Header -->
   <header>
     <h1>Assessment 2 - Browser-based Interactive Experiments</h1>
     <p>Kyara Herman - s4190028</p>
   </header>
 
 
-  <!-- MAIN CONTENT -->
+  <!-- Main content -->
   <main class="container">
 
     <section class="turntable">
@@ -55,7 +55,7 @@
       </div>
 
 
-      <!-- MUSIC PLAYER INFORMATION AND CONTROLS -->
+      <!-- Controls & Information -->
       <div class="player-panel">
 
         <div class="song-information">
@@ -69,6 +69,7 @@
           <span class="time-divider">/</span>
           <span id="duration">00:00</span>
         </div>
+        <!-- I searched for tutorials on YouTube and asked ChatGPT on how to put a timer. I felt that it was necessary to include one for a complete music player experience. -->
 
         <!-- Progress bar -->
         <div
@@ -83,9 +84,9 @@
         >
           <div class="progress-fill" id="progress-fill"></div>
         </div>
+        <!-- I searched for tutorials on Google and YouTube and asked ChatGPT on how to put a progress bar. I felt that it was necessary to include one for a complete music player experience. -->
 
-
-        <!-- PLAYER BUTTONS -->
+        <!-- Buttons -->
         <div class="controls">
 
           <!-- Replay -->
@@ -98,7 +99,7 @@
             <img src="./Document_files/start.png" alt="">
           </button>
 
-          <!-- Play and pause toggle -->
+          <!-- Play and pause button -->
           <button class="control-button" id="play-pause-button" aria-label="Play">
             <img id="play-pause-icon" src="./Document_files/play.png" alt="">
           </button>
@@ -108,7 +109,7 @@
             <img src="./Document_files/end.png" alt="">
           </button>
 
-          <!-- Shuffle toggle -->
+          <!-- Shuffle button -->
           <button
             class="control-button"
             id="shuffle-button"
@@ -121,7 +122,7 @@
         </div>
 
 
-        <!-- VOLUME BUTTON -->
+        <!-- Volume button -->
         <div class="volume-area">
 
           <button
@@ -142,15 +143,15 @@
     </section>
 
   </main>
+<!--The buttons were a challenge for me. I found it hard to make them actually work instead of just being placeholders. I had to search for tutorials on Google and get feedback from ChatGPT on how to do it as I kept having troubles with making them work.-->
 
-
-  <!-- FOOTER -->
+  <!-- Footer -->
   <footer>
-    <p>Play and pause icons by Icons8</p>
+    <p>Icons by Icons8</p>
   </footer>
 
 
-  <!-- AUDIO FILE -->
+  <!-- Audio -->
   <audio id="song" src="./Document_files/song.mp3" preload="metadata"></audio>
 
 </body>
