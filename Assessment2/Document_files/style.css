@@ -152,11 +152,11 @@ header p {
 .vinyl-setup-image {
   position: absolute;
 
-  width: 68%;
+  width: 64%;
   height: auto;
 
-  left: 2%;
-  top: 50%;
+  left: 3%;
+  top: 52%;
 
   transform: translateY(-50%);
 
@@ -175,8 +175,8 @@ header p {
 .remote {
   position: absolute;
 
-  width: 150px;
-  height: 390px;
+  width: 350px;
+  height: 600px;
 
   right: 5%;
   top: 50%;
