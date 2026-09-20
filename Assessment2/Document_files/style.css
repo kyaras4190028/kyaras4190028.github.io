@@ -157,7 +157,7 @@ header p {
   display: block;
 
   width: 190%;
-
+  transform: translateX(15px) scale(1.15);
 
   height: auto;
   object-fit: contain;
