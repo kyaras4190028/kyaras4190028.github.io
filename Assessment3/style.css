@@ -1,0 +1,28 @@
+
+/* Remove default spacing from the page */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set the background behind the map */
+body {
+    background-color: #171717;
+}
+
+/* Centre the game on the page */
+.game {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Display the map without stretching it */
+.map {
+    display: block;
+    width: 100%;
+    height: auto;
+}
