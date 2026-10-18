@@ -1,21 +1,62 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Over Here!</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <main class="game">
+
+        <!-- Background map -->
         <img
             src="images/map.png"
-            alt="A busy lakeside festival filled with children and activities"
+            alt="A busy lakeside festival"
             class="map"
         >
+
+        <!-- Dark layer that reveals the map through the magnifying glass -->
+        <div class="dark-overlay" id="dark-overlay"></div>
+
+        <!-- Note in the top-left corner -->
+        <img
+            src="images/note.png"
+            alt="Game instructions"
+            class="note"
+        >
+
+        <!-- Starting screen -->
+        <div class="start-screen" id="start-screen">
+
+            <img
+                src="images/title.png"
+                alt="Psst... over here! Find Pip!"
+                class="title-image"
+                id="start-button"
+                role="button"
+                tabindex="0"
+            >
+
+        </div>
+
+        <!-- Magnifying glass -->
+        <img
+            src="images/magnifyingglass.png"
+            alt=""
+            class="magnifying-glass"
+            id="magnifying-glass"
+        >
+
     </main>
+
+    <script src="script.js"></script>
 
 </body>
 </html>
