@@ -1,28 +1,149 @@
 
-/* Remove default spacing from the page */
+/* Remove default browser spacing */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Set the background behind the map */
+/* Page background */
+html,
 body {
-    background-color: #171717;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    overflow: hidden;
 }
 
-/* Centre the game on the page */
+/* Main game area */
 .game {
+    position: relative;
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+    background: black;
+}
+
+/* Background map */
+.map {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Dark overlay */
+.dark-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background: rgba(0, 0, 0, 0.92);
+    opacity: 0;
+}
+
+/* Circular transparent reveal */
+.dark-overlay.active {
+    opacity: 1;
+
+    background: radial-gradient(
+        circle 80px at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        transparent 0,
+        transparent 72px,
+        rgba(0, 0, 0, 0.92) 82px
+    );
+}
+
+/* Starting screen */
+
+.start-screen {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
+    background: rgba(0, 0, 0, 0.92);
+    overflow: hidden;
 }
 
-/* Display the map without stretching it */
-.map {
+
+
+/* Keep the title image fully visible */
+.title-image {
     display: block;
-    width: 100%;
+
+    width: auto;
     height: auto;
+
+    max-width: 80vw;
+    max-height: 75vh;
+
+    object-fit: contain;
+    cursor: pointer;
+
+    transition: transform 0.2s ease;
+}
+
+/* Slight hover effect */
+.title-image:hover {
+    transform: scale(1.02);
+}
+
+
+/* Note in the top-left corner */
+.note {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 4;
+
+    width: clamp(100px, 15vw, 220px);
+    height: auto;
+    object-fit: contain;
+}
+
+
+/* Custom magnifying glass PNG */
+.magnifying-glass {
+    position: absolute;
+    z-index: 3;
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    left: 0;
+    top: 0;
+    display: none;
+    pointer-events: none;
+}
+
+/* Keep the game usable on smaller screens */
+@media (max-width: 600px) {
+    .note {
+        top: 10px;
+        left: 10px;
+        width: 120px;
+    }
+
+    .glass {
+        width: 120px;
+        height: 120px;
+    }
+
+    .magnifying-glass {
+        width: 130px;
+        height: 130px;
+    }
+
+    .handle {
+        left: 90px;
+        top: 100px;
+        width: 20px;
+        height: 60px;
+    }
 }
