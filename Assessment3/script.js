@@ -15,10 +15,7 @@ let pipFound = false;
 let lastMouseX = window.innerWidth - 75;
 let lastMouseY = 75;
 
-/*
-    These values estimate the centre of the lens
-    within the magnifying glass PNG.
-*/
+//Lens position relative to the magnifying glass
 const LENS_X = 0.376;
 const LENS_Y = 0.349;
 
