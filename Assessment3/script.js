@@ -54,7 +54,7 @@ function moveMagnifyingGlass(clientX, clientY) {
 
     // Align the lens centre with the cursor
     const SHIFT_X = 8;
-    const SHIFT_Y = 18;
+    const SHIFT_Y = 0;
     magnifyingGlass.style.left =
         (x - glassWidth * LENS_X + SHIFT_X) + "px";
 
