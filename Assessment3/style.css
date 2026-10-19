@@ -46,16 +46,18 @@ body {
 }
 
 /* Circular clear area that follows the mouse */
+
 .dark-overlay.active {
     opacity: 1;
 
     background: radial-gradient(
-        circle 125px at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        circle 75px at var(--mouse-x, 50%) var(--mouse-y, 50%),
         transparent 0,
-        transparent 115px,
-        rgba(0, 0, 0, 0.92) 130px
+        transparent 78px,
+        rgba(0, 0, 0, 0.92) 90px
     );
 }
+
 
 /* Starting screen */
 .start-screen {
