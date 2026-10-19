@@ -15,7 +15,7 @@ body {
     overflow: hidden;
 }
 
-/* Main game container */
+/* Main game area */
 .game {
     position: relative;
     width: 100%;
@@ -35,7 +35,7 @@ body {
     object-position: center;
 }
 
-/* Dark layer */
+/* Dark overlay */
 .dark-overlay {
     position: absolute;
     inset: 0;
@@ -45,21 +45,22 @@ body {
     opacity: 0;
 }
 
-/* Circular clear area that follows the mouse */
+/* Clear circle aligned with the lens */
+
 .dark-overlay.active {
     opacity: 1;
 
     background: radial-gradient(
-        circle 85px at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        circle var(--reveal-radius, 20px)
+        at var(--mouse-x, 50%) var(--mouse-y, 50%),
         transparent 0,
-        transparent 80px,
-        rgba(0, 0, 0, 0.92) 90px
+        transparent calc(var(--reveal-radius, 20px) - 5px),
+        rgba(0, 0, 0, 0.92) var(--reveal-radius, 20px)
     );
 }
 
 
-
-/* Starting screen */
+/* Starting title screen */
 .start-screen {
     position: absolute;
     inset: 0;
@@ -111,13 +112,13 @@ body {
     pointer-events: none;
 }
 
-/* Pip's hidden target area */
+/* Pip's target area */
 .pip-target {
     position: absolute;
     left: 58%;
     top: 62%;
-    width: 70px;
-    height: 70px;
+    width: 100px;
+    height: 100px;
     transform: translate(-50%, -50%);
     z-index: 1;
     pointer-events: none;

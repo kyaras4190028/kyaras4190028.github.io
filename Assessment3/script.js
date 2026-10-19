@@ -5,18 +5,17 @@ const darkOverlay = document.getElementById("dark-overlay");
 const magnifyingGlass = document.getElementById("magnifying-glass");
 const pipTarget = document.getElementById("pip-target");
 const winScreen = document.getElementById("win-screen");
-const keepExploring = document.getElementById("keep-exploring");
 const playAgain = document.getElementById("play-again");
 const game = document.querySelector(".game");
 
 let gameStarted = false;
 let pipFound = false;
 
-// Remember the cursor's most recent position
+// Remember the last cursor position
 let lastMouseX = window.innerWidth / 2;
 let lastMouseY = window.innerHeight / 2;
 
-// Start the game when the title is clicked
+// Start the game
 function startGame() {
     if (gameStarted) return;
 
@@ -30,7 +29,7 @@ function startGame() {
     moveMagnifyingGlass(lastMouseX, lastMouseY);
 }
 
-// Move the magnifying glass and the reveal circle
+// Move the magnifying glass and reveal circle
 function moveMagnifyingGlass(clientX, clientY) {
     const gameRect = game.getBoundingClientRect();
 
@@ -44,15 +43,18 @@ function moveMagnifyingGlass(clientX, clientY) {
     magnifyingGlass.style.top =
         (y - magnifyingGlass.offsetHeight / 2) + "px";
 
-    // Keep the clear area aligned with the cursor
-    darkOverlay.style.setProperty("--mouse-x", (x - 15) + "px");
-    darkOverlay.style.setProperty("--mouse-y", (y + 10) + "px");
+    // Offset the reveal slightly to align with the lens
+    darkOverlay.style.setProperty("--mouse-x", (x - 26) + "px");
+    darkOverlay.style.setProperty("--mouse-y", (y - 23) + "px");
+    // Change 20 to make the clear circle smaller or bigger
+    darkOverlay.style.setProperty("--reveal-radius", "48px");
 
-    // Check whether the cursor has reached Pip
+
+    // Check whether Pip has been found
     checkForPip(clientX, clientY);
 }
 
-// Check the distance between the cursor and Pip
+// Check if the cursor reaches Pip
 function checkForPip(clientX, clientY) {
     if (!gameStarted || pipFound) return;
 
@@ -66,8 +68,8 @@ function checkForPip(clientX, clientY) {
         clientY - targetY
     );
 
-    // Show the congratulations message when Pip is found
-    if (distance < 45) {
+    // Trigger the popup when the cursor reaches Pip
+    if (distance < 70) {
         pipFound = true;
         winScreen.style.display = "flex";
     }
@@ -83,10 +85,10 @@ document.addEventListener("mousemove", function(event) {
     }
 });
 
-// Click the title to begin
+// Click title to start
 startButton.addEventListener("click", startGame);
 
-// Allow keyboard users to start the game too
+// Allow keyboard activation
 startButton.addEventListener("keydown", function(event) {
     if (event.key === "Enter" || event.key === " ") {
         event.preventDefault();
@@ -94,10 +96,6 @@ startButton.addEventListener("keydown", function(event) {
     }
 });
 
-// Close the popup and continue exploring
-keepExploring.addEventListener("click", function() {
-    winScreen.style.display = "none";
-});
 
 // Restart the game
 playAgain.addEventListener("click", function() {
