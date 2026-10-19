@@ -45,8 +45,8 @@ function moveMagnifyingGlass(clientX, clientY) {
         (y - magnifyingGlass.offsetHeight / 2) + "px";
 
     // Keep the clear area aligned with the cursor
-    darkOverlay.style.setProperty("--mouse-x", x + "px");
-    darkOverlay.style.setProperty("--mouse-y", y + "px");
+    darkOverlay.style.setProperty("--mouse-x", (x - 15) + "px");
+    darkOverlay.style.setProperty("--mouse-y", (y + 10) + "px");
 
     // Check whether the cursor has reached Pip
     checkForPip(clientX, clientY);
