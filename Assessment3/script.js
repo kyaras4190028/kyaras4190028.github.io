@@ -29,30 +29,28 @@ function startGame() {
     moveMagnifyingGlass(lastMouseX, lastMouseY);
 }
 
-// Move the magnifying glass and reveal circle
-function moveMagnifyingGlass(clientX, clientY) {
-    const gameRect = game.getBoundingClientRect();
 
-    const x = clientX - gameRect.left;
-    const y = clientY - gameRect.top;
-
-    // Centre the PNG on the cursor
+// Position the magnifying glass image
     magnifyingGlass.style.left =
         (x - magnifyingGlass.offsetWidth / 2) + "px";
 
     magnifyingGlass.style.top =
         (y - magnifyingGlass.offsetHeight / 2) + "px";
 
-    // Offset the reveal slightly to align with the lens
-    darkOverlay.style.setProperty("--mouse-x", (x - 26) + "px");
-    darkOverlay.style.setProperty("--mouse-y", (y - 23) + "px");
-    // Change 20 to make the clear circle smaller or bigger
+// Keep the transparent reveal aligned with the lens
+const lensX = x - 26;
+const lensY = y - 23;
+
+    darkOverlay.style.setProperty("--mouse-x", lensX + "px");
+    darkOverlay.style.setProperty("--mouse-y", lensY + "px");
     darkOverlay.style.setProperty("--reveal-radius", "48px");
 
+// Check the centre of the lens, not the mouse cursor
+    checkForPip(
+        clientX - 26,
+        clientY - 23
+    );
 
-    // Check whether Pip has been found
-    checkForPip(clientX, clientY);
-}
 
 // Check if the cursor reaches Pip
 function checkForPip(clientX, clientY) {
