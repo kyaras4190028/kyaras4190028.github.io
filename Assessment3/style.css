@@ -6,16 +6,16 @@
     box-sizing: border-box;
 }
 
-/* Page background */
+/* Fill the browser window */
 html,
 body {
     width: 100%;
     height: 100%;
-    background-color: black;
+    background: black;
     overflow: hidden;
 }
 
-/* Main game area */
+/* Main game container */
 .game {
     position: relative;
     width: 100%;
@@ -35,7 +35,7 @@ body {
     object-position: center;
 }
 
-/* Dark overlay */
+/* Dark layer */
 .dark-overlay {
     position: absolute;
     inset: 0;
@@ -45,56 +45,45 @@ body {
     opacity: 0;
 }
 
-/* Circular transparent reveal */
+/* Circular clear area that follows the mouse */
 .dark-overlay.active {
     opacity: 1;
 
     background: radial-gradient(
-        circle 80px at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        circle 125px at var(--mouse-x, 50%) var(--mouse-y, 50%),
         transparent 0,
-        transparent 72px,
-        rgba(0, 0, 0, 0.92) 82px
+        transparent 115px,
+        rgba(0, 0, 0, 0.92) 130px
     );
 }
 
 /* Starting screen */
-
 .start-screen {
     position: absolute;
     inset: 0;
     z-index: 5;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     background: rgba(0, 0, 0, 0.92);
     overflow: hidden;
 }
 
-
-
-/* Keep the title image fully visible */
+/* Title image */
 .title-image {
     display: block;
-
     width: auto;
     height: auto;
-
     max-width: 80vw;
     max-height: 75vh;
-
     object-fit: contain;
     cursor: pointer;
-
     transition: transform 0.2s ease;
 }
 
-/* Slight hover effect */
 .title-image:hover {
     transform: scale(1.02);
 }
-
 
 /* Note in the top-left corner */
 .note {
@@ -102,19 +91,17 @@ body {
     top: 20px;
     left: 20px;
     z-index: 4;
-
     width: clamp(100px, 15vw, 220px);
     height: auto;
     object-fit: contain;
 }
 
-
 /* Custom magnifying glass PNG */
 .magnifying-glass {
     position: absolute;
     z-index: 3;
-    width: 180px;
-    height: 180px;
+    width: 240px;
+    height: 240px;
     object-fit: contain;
     left: 0;
     top: 0;
@@ -122,7 +109,68 @@ body {
     pointer-events: none;
 }
 
-/* Keep the game usable on smaller screens */
+/* Pip's hidden target area */
+.pip-target {
+    position: absolute;
+    left: 58%;
+    top: 62%;
+    width: 70px;
+    height: 70px;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Congratulations screen */
+.win-screen {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.65);
+}
+
+/* Paper-style popup */
+.win-note {
+    background: #f3ead5;
+    color: #29231d;
+    padding: 35px;
+    width: min(85%, 420px);
+    text-align: center;
+    border: 2px solid #d1c2a3;
+    box-shadow: 4px 6px 15px rgba(0, 0, 0, 0.3);
+    transform: rotate(-2deg);
+}
+
+.win-note h1 {
+    font-family: Georgia, serif;
+    font-size: 28px;
+    margin-bottom: 16px;
+}
+
+.win-note p {
+    margin: 10px 0;
+    font-family: Georgia, serif;
+}
+
+/* Popup buttons */
+.win-note button {
+    margin: 12px 4px 0;
+    padding: 10px 14px;
+    background: #8b6748;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.win-note button:hover {
+    background: #65452f;
+}
+
+/* Smaller screens */
 @media (max-width: 600px) {
     .note {
         top: 10px;
@@ -130,20 +178,16 @@ body {
         width: 120px;
     }
 
-    .glass {
-        width: 120px;
-        height: 120px;
-    }
-
     .magnifying-glass {
-        width: 130px;
-        height: 130px;
+        width: 190px;
+        height: 190px;
     }
 
-    .handle {
-        left: 90px;
-        top: 100px;
-        width: 20px;
-        height: 60px;
+    .win-note {
+        padding: 25px 18px;
+    }
+
+    .win-note h1 {
+        font-size: 23px;
     }
 }

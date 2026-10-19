@@ -1,40 +1,35 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Over Here!</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
     <main class="game">
 
         <!-- Background map -->
         <img
             src="images/map.png"
-            alt="A busy lakeside festival"
+            alt="A busy festival full of people and activities"
             class="map"
         >
 
-        <!-- Dark layer that reveals the map through the magnifying glass -->
+        <!-- Dark overlay with a clear circle around the cursor -->
         <div class="dark-overlay" id="dark-overlay"></div>
 
-        <!-- Note in the top-left corner -->
+        <!-- Small instruction note in the top-left corner -->
         <img
             src="images/note.png"
-            alt="Game instructions"
+            alt="Psst... over here!"
             class="note"
         >
 
-        <!-- Starting screen -->
+        <!-- Starting title screen -->
         <div class="start-screen" id="start-screen">
-
             <img
                 src="images/title.png"
                 alt="Psst... over here! Find Pip!"
@@ -43,10 +38,9 @@
                 role="button"
                 tabindex="0"
             >
-
         </div>
 
-        <!-- Magnifying glass -->
+        <!-- Your custom magnifying glass PNG -->
         <img
             src="images/magnifyingglass.png"
             alt=""
@@ -54,9 +48,23 @@
             id="magnifying-glass"
         >
 
+        <!-- Invisible area positioned over Pip -->
+        <div class="pip-target" id="pip-target"></div>
+
+        <!-- Congratulations popup -->
+        <div class="win-screen" id="win-screen">
+            <div class="win-note">
+                <h1>you found pip!!</h1>
+                <p>Good job, detective!</p>
+                <p>Pip can't hide from you forever!</p>
+
+                <button id="keep-exploring">Keep exploring</button>
+                <button id="play-again">Play again</button>
+            </div>
+        </div>
+
     </main>
 
     <script src="script.js"></script>
-
 </body>
 </html>
