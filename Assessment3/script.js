@@ -53,13 +53,13 @@ function moveMagnifyingGlass(clientX, clientY) {
     const glassHeight = magnifyingGlass.offsetHeight;
 
     // Align the lens centre with the cursor
-    const SHIFT_X = 0;
-    const SHIFT_Y = 0;
+    const SHIFT_X = 8;
+    const SHIFT_Y = 8;
     magnifyingGlass.style.left =
         (x - glassWidth * LENS_X + SHIFT_X) + "px";
 
     magnifyingGlass.style.top =
-        (y - glassHeight * LENS_Y) + "px";
+        (y - glassHeight * LENS_Y + SHIFT_Y) + "px";
 
     // Reveal the area underneath the lens
     darkOverlay.style.setProperty("--mouse-x", x + "px");
