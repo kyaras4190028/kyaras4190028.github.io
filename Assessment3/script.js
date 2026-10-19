@@ -11,9 +11,16 @@ const game = document.querySelector(".game");
 let gameStarted = false;
 let pipFound = false;
 
-// Remember the latest mouse position
-let lastMouseX = window.innerWidth / 2;
-let lastMouseY = window.innerHeight / 2;
+// Initial cursor position
+let lastMouseX = window.innerWidth - 75;
+let lastMouseY = 75;
+
+/*
+    These values estimate the centre of the lens
+    within the magnifying glass PNG.
+*/
+const LENS_X = 0.376;
+const LENS_Y = 0.349;
 
 // Start the game
 function startGame() {
@@ -26,40 +33,43 @@ function startGame() {
     darkOverlay.classList.add("active");
     magnifyingGlass.style.display = "block";
 
+    // Start near the top-right corner
+    const rect = game.getBoundingClientRect();
+
+    lastMouseX = rect.right - 75;
+    lastMouseY = rect.top + 75;
+
     moveMagnifyingGlass(lastMouseX, lastMouseY);
 }
 
-// Move the magnifying glass and reveal circle
+// Position the glass and reveal the map
 function moveMagnifyingGlass(clientX, clientY) {
-    const gameRect = game.getBoundingClientRect();
+    const rect = game.getBoundingClientRect();
 
-    const x = clientX - gameRect.left;
-    const y = clientY - gameRect.top;
+    const x = clientX - rect.left;
+    const y = clientY - rect.top;
 
-    // Centre the glass PNG around the cursor
+    const glassWidth = magnifyingGlass.offsetWidth;
+    const glassHeight = magnifyingGlass.offsetHeight;
+
+    // Align the lens centre with the cursor
     magnifyingGlass.style.left =
-        (x - magnifyingGlass.offsetWidth / 2) + "px";
+        (x - glassWidth * LENS_X) + "px";
 
     magnifyingGlass.style.top =
-        (y - magnifyingGlass.offsetHeight / 2) + "px";
+        (y - glassHeight * LENS_Y) + "px";
 
-    // Position the clear circle to match your lens
-    const lensX = x - 26;
-    const lensY = y - 23;
-
-    darkOverlay.style.setProperty("--mouse-x", lensX + "px");
-    darkOverlay.style.setProperty("--mouse-y", lensY + "px");
+    // Reveal the area underneath the lens
+    darkOverlay.style.setProperty("--mouse-x", x + "px");
+    darkOverlay.style.setProperty("--mouse-y", y + "px");
     darkOverlay.style.setProperty("--reveal-radius", "48px");
 
-    // Check the centre of the lens against Pip
-    checkForPip(
-        clientX - 26,
-        clientY - 23
-    );
+    // Check if Pip has been found
+    checkForPip(clientX, clientY);
 }
 
-// Check whether the lens reaches Pip
-function checkForPip(lensClientX, lensClientY) {
+// Detect Pip
+function checkForPip(clientX, clientY) {
     if (!gameStarted || pipFound) return;
 
     const targetRect = pipTarget.getBoundingClientRect();
@@ -68,18 +78,17 @@ function checkForPip(lensClientX, lensClientY) {
     const targetY = targetRect.top + targetRect.height / 2;
 
     const distance = Math.hypot(
-        lensClientX - targetX,
-        lensClientY - targetY
+        clientX - targetX,
+        clientY - targetY
     );
 
-    // Show the congratulations popup when the lens reaches Pip
-    if (distance < 30) {
+    if (distance < 45) {
         pipFound = true;
         winScreen.style.display = "flex";
     }
 }
 
-// Follow the mouse
+// Follow mouse movement
 document.addEventListener("mousemove", function(event) {
     lastMouseX = event.clientX;
     lastMouseY = event.clientY;
@@ -92,7 +101,7 @@ document.addEventListener("mousemove", function(event) {
 // Click the title to start
 startButton.addEventListener("click", startGame);
 
-// Keyboard support for the title
+// Keyboard controls for the title
 startButton.addEventListener("keydown", function(event) {
     if (event.key === "Enter" || event.key === " ") {
         event.preventDefault();
@@ -100,7 +109,7 @@ startButton.addEventListener("keydown", function(event) {
     }
 });
 
-// Restart the game from the congratulations popup
+// Restart the game
 playAgain.addEventListener("click", function() {
     pipFound = false;
     gameStarted = false;

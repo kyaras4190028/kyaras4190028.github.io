@@ -1,21 +1,20 @@
 
-/* Remove default browser spacing */
+/* Reset default browser spacing */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Fill the browser window */
 html,
 body {
     width: 100%;
     height: 100%;
-    background: black;
     overflow: hidden;
+    background: black;
 }
 
-/* Main game container */
+/* Main game area */
 .game {
     position: relative;
     width: 100%;
@@ -42,11 +41,11 @@ body {
     inset: 0;
     z-index: 2;
     pointer-events: none;
-    background: rgba(0, 0, 0, 0.92);
     opacity: 0;
+    background: rgba(0, 0, 0, 0.92);
 }
 
-/* Transparent reveal through the magnifying glass */
+/* Clear circular area following the lens */
 .dark-overlay.active {
     opacity: 1;
     background: radial-gradient(
@@ -58,31 +57,30 @@ body {
     );
 }
 
-/* Instruction note in the top-left corner */
+/* Small instruction note */
 .note {
     position: absolute;
     top: 8px;
     left: 8px;
-    z-index: 4;
     width: 115px;
     height: auto;
     object-fit: contain;
+    z-index: 4;
     pointer-events: none;
 }
 
-/* Starting screen */
+/* Title screen */
 .start-screen {
     position: absolute;
     inset: 0;
     z-index: 5;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     background: rgba(0, 0, 0, 0.92);
-    overflow: hidden;
 }
 
-/* Title image */
+/* Clickable title image */
 .title-image {
     display: block;
     width: auto;
@@ -98,20 +96,20 @@ body {
     transform: scale(1.02);
 }
 
-/* Custom magnifying glass */
+/* Magnifying glass PNG */
 .magnifying-glass {
     position: absolute;
     z-index: 3;
-    width: 240px;
-    height: 240px;
-    object-fit: contain;
+    width: 300px;
+    height: auto;
     left: 0;
     top: 0;
     display: none;
+    object-fit: contain;
     pointer-events: none;
 }
 
-/* Pip's target area */
+/* Invisible Pip detection area */
 .pip-target {
     position: absolute;
     left: 58%;
@@ -123,7 +121,7 @@ body {
     pointer-events: none;
 }
 
-/* Congratulations screen */
+/* Winning screen */
 .win-screen {
     position: absolute;
     inset: 0;
@@ -134,13 +132,13 @@ body {
     background: rgba(0, 0, 0, 0.65);
 }
 
-/* Paper-style congratulations note */
+/* Paper-style popup */
 .win-note {
+    width: min(85%, 420px);
+    padding: 35px;
+    text-align: center;
     background: #f3ead5;
     color: #29231d;
-    padding: 35px;
-    width: min(85%, 420px);
-    text-align: center;
     border: 2px solid #d1c2a3;
     box-shadow: 4px 6px 15px rgba(0, 0, 0, 0.3);
     transform: rotate(-2deg);
@@ -159,7 +157,7 @@ body {
 
 /* Play again button */
 .win-note button {
-    margin: 12px 4px 0;
+    margin-top: 12px;
     padding: 10px 18px;
     background: #8b6748;
     color: white;
@@ -172,7 +170,7 @@ body {
     background: #65452f;
 }
 
-/* Smaller screens */
+/* Mobile adjustments */
 @media (max-width: 600px) {
     .note {
         top: 6px;
@@ -181,8 +179,7 @@ body {
     }
 
     .magnifying-glass {
-        width: 190px;
-        height: 190px;
+        width: 220px;
     }
 
     .win-note {
