@@ -15,7 +15,7 @@ body {
     overflow: hidden;
 }
 
-/* Main game area */
+/* Main game container */
 .game {
     position: relative;
     width: 100%;
@@ -33,8 +33,8 @@ body {
     height: 100%;
     object-fit: fill;
     object-position: center;
+    z-index: 0;
 }
-
 
 /* Dark overlay */
 .dark-overlay {
@@ -46,22 +46,31 @@ body {
     opacity: 0;
 }
 
-/* Clear circle aligned with the lens */
-
+/* Transparent reveal through the magnifying glass */
 .dark-overlay.active {
     opacity: 1;
-
     background: radial-gradient(
-        circle var(--reveal-radius, 20px)
+        circle var(--reveal-radius, 48px)
         at var(--mouse-x, 50%) var(--mouse-y, 50%),
         transparent 0,
-        transparent calc(var(--reveal-radius, 20px) - 5px),
-        rgba(0, 0, 0, 0.92) var(--reveal-radius, 20px)
+        transparent calc(var(--reveal-radius, 48px) - 4px),
+        rgba(0, 0, 0, 0.92) var(--reveal-radius, 48px)
     );
 }
 
+/* Instruction note in the top-left corner */
+.note {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    z-index: 4;
+    width: 115px;
+    height: auto;
+    object-fit: contain;
+    pointer-events: none;
+}
 
-/* Starting title screen */
+/* Starting screen */
 .start-screen {
     position: absolute;
     inset: 0;
@@ -89,19 +98,7 @@ body {
     transform: scale(1.02);
 }
 
-/* Note in the top-left corner */
-.note {
-    position: absolute;
-    top: 8px;
-    left: 8px;
-    z-index: 4;
-    width: 115px;
-    height: auto;
-    object-fit: contain;
-}
-
-
-/* Custom magnifying glass PNG */
+/* Custom magnifying glass */
 .magnifying-glass {
     position: absolute;
     z-index: 3;
@@ -119,8 +116,8 @@ body {
     position: absolute;
     left: 58%;
     top: 62%;
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
     transform: translate(-50%, -50%);
     z-index: 1;
     pointer-events: none;
@@ -137,7 +134,7 @@ body {
     background: rgba(0, 0, 0, 0.65);
 }
 
-/* Paper-style popup */
+/* Paper-style congratulations note */
 .win-note {
     background: #f3ead5;
     color: #29231d;
@@ -160,10 +157,10 @@ body {
     font-family: Georgia, serif;
 }
 
-/* Popup buttons */
+/* Play again button */
 .win-note button {
     margin: 12px 4px 0;
-    padding: 10px 14px;
+    padding: 10px 18px;
     background: #8b6748;
     color: white;
     border: none;
@@ -178,9 +175,9 @@ body {
 /* Smaller screens */
 @media (max-width: 600px) {
     .note {
-        top: 10px;
-        left: 10px;
-        width: 120px;
+        top: 6px;
+        left: 6px;
+        width: 90px;
     }
 
     .magnifying-glass {
