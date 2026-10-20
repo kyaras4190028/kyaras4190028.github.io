@@ -11,22 +11,25 @@
 <body>
     <main class="game">
 
-        <!-- Background search-and-find map -->
+        <!-- Search-and-find map -->
         <img
             src="images/map.png"
             alt="A busy map full of people and activities"
             class="map"
         >
+        <!-- I originally decided to draw the map myself digitally. However, after drawing the background and objects, I found it really time-consuming and taxing to draw and color each character into the map. Thus, I asked ChatGPT to help me fill in the map and include Pip inside. ChatGPT did change some parts of my original drawing, but there was no drastic changes and it was a great help for me to move forward with the assignment. -->
 
         <!-- Dark overlay with a clear circle -->
         <div class="dark-overlay" id="dark-overlay"></div>
+        <!-- I decided to use a dark overlay with a clear circle to simulate the magnifying glass effect and make it more challenging for players to spot Pip. I felt that the magnifying glass effect added more mystery and fun for players.-->
 
-        <!-- Instruction note -->
+        <!-- Note -->
         <img
             src="images/note.png"
             alt="Game instructions"
             class="note"
         >
+        <!-- I added a note on the side just for some aesthetic effect and to make the game look better.-->
 
         <!-- Starting screen -->
         <div class="start-screen" id="start-screen">
@@ -39,14 +42,16 @@
                 tabindex="0"
             >
         </div>
+        <!--I added a starting screen to allow players to know the objective of the game, which was to find Pip. I also included a picture of Pip so players would know what they were looking for. It also doesn't immediately throw the players into the game, which make the experience much more enjoyable.-->
 
-        <!-- Custom magnifying glass -->
+        <!-- Magnifying glass -->
         <img
             src="images/magnifyingglass.png"
             alt=""
             class="magnifying-glass"
             id="magnifying-glass"
         >
+        <!--Similar to the dark overlay, I added a magnifying glass image to enhance the visual appeal and provide a more immersive experience for players.-->
 
         <!-- Invisible target placed over Pip -->
         <div class="pip-target" id="pip-target"></div>
@@ -60,9 +65,12 @@
                 <button id="play-again">Play again</button>
             </div>
         </div>
-
+        <!-- I added a congratulations popup to celebrate when players find Pip and provide them with the option to play again. -->
+   
     </main>
 
     <script src="script.js"></script>
 </body>
 </html>
+
+<!--A difference I made with my code this time compared to previous assignments was to label my actions and the elements to help me keep track of them and be more clear in what actions I do and the purpose for each of them.-->

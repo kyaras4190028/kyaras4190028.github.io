@@ -1,4 +1,3 @@
-
 /* Reset default browser spacing */
 * {
     margin: 0;
@@ -44,6 +43,7 @@ body {
     opacity: 0;
     background: rgba(0, 0, 0, 0.97);
 }
+/* I made the dark overlay slightly transparent to create a more immersive experience for the player. This allows them to see the map underneath while still maintaining a sense of mystery and challenge in finding Pip. It also felt more aesthetically pleasing than just a solid black overlay. */
 
 /* Clear circular area following the lens */
 .dark-overlay.active {
@@ -68,6 +68,7 @@ body {
     z-index: 4;
     pointer-events: none;
 }
+/* I added a note on the side just for some aesthetic effect and to make the game look better. */
 
 /* Title screen */
 .start-screen {
@@ -108,7 +109,7 @@ body {
     object-fit: contain;
     pointer-events: none;
 }
-
+/* I got this PNG from Pinterest. I wanted to use a magnifying glass to make the game more interactive and fun for the player. It also adds a nice visual element to the game, making it more engaging and visually appealing. */
 
 /* Invisible Pip detection area */
 .pip-target {
@@ -155,6 +156,7 @@ body {
     margin: 10px 0;
     font-family: Georgia, serif;
 }
+/* I decided to create a winning screen that was different from the other notes just to make it more visually appealing and to give the player a sense of accomplishment when they find Pip. I wanted to make it feel like a special moment in the game, so I added some extra styling to make it stand out. I felt that the note was different but was still similar to the other notes I made. */
 
 /* Play again button */
 .win-note button {
